@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import TextSideAnimation from "./TextSideAnimation";
-
+import { motion } from "motion/react";
 export default function HeroBigText({
   heroLogo,
 }: {
@@ -16,7 +16,6 @@ export default function HeroBigText({
         <TextSideAnimation text={text2} />
       </div>
       <div className="flex items-center gap-4">
-        {" "}
         <TextSideAnimation text={text3} />
         <div className="size-[113px] relative">
           <Image
