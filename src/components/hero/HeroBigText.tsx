@@ -20,7 +20,7 @@ export default function HeroBigText({
         <motion.div
           initial={{ width: 0, opacity: 0 }}
           animate={{ width: 113, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+          transition={{ duration: 1, ease: "easeInOut", delay: 0.6 }}
           className="h-[113px] relative overflow-hidden flex justify-center rounded-3xl"
         >
           <div className="w-[113px] h-[113px] relative shrink-0">
