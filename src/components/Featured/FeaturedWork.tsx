@@ -1,6 +1,6 @@
 "use client";
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import Projects from "./Projects";
 import { projectsData } from "@/data/projectData";
@@ -11,6 +11,8 @@ export default function FeaturedWork() {
     target: containerRef,
     offset: ["start start", "end end"],
   });
+
+  const [hoveredProjectId, setHoveredProjectId] = useState<number | null>(null);
 
   const y = useTransform(scrollYProgress, [0, 1], ["-0.50%", "-89%"]);
   const y2 = useTransform(scrollYProgress, [0, 1], ["25%", "-50%"]);
@@ -33,12 +35,18 @@ export default function FeaturedWork() {
           </div>
           <motion.div style={{ y: y2 }} className="flex flex-col gap-y-4">
             {projectsData.map((project) => (
-              <Link href={`/projects/${project.id}`} key={project.id}>
+              <Link
+                href={`/projects/${project.id}`}
+                key={project.id}
+                onMouseEnter={() => setHoveredProjectId(project.id)}
+                onMouseLeave={() => setHoveredProjectId(null)}
+              >
                 <motion.div
-                  whileHover={{ x: 20, cursor: "pointer" }}
+                  animate={{
+                    x: hoveredProjectId === project.id ? 20 : 0,
+                  }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className="flex items-start gap-x-2 z-30"
-                  key={project.id}
+                  className="flex items-start gap-x-2 z-30 relative cursor-pointer"
                 >
                   <h2 className="text-4xl lg:text-6xl xl:text-[4.8rem] font-semibold tracking-tight leading-[0.9]">
                     {project.title}
@@ -53,7 +61,10 @@ export default function FeaturedWork() {
         </div>
         <div className="w-3/7 h-full items-center">
           <motion.div style={{ y }}>
-            <Projects />
+            <Projects
+              hoveredProjectId={hoveredProjectId}
+              setHoveredProjectId={setHoveredProjectId}
+            />
           </motion.div>
         </div>
       </div>

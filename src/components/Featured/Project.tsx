@@ -7,12 +7,22 @@ import { motion, useSpring, useTransform } from "motion/react";
 
 interface ProjectProps {
   project: ProjectData;
+  isExternalHovered?: boolean;
+  setHovered?: () => void;
+  resetHover?: () => void;
 }
 
-export default function Project({ project }: ProjectProps) {
+export default function Project({
+  project,
+  isExternalHovered,
+  setHovered,
+  resetHover,
+}: ProjectProps) {
   const { title, image, type, description, color } = project;
-  const [isHovered, setIsHovered] = useState(false);
+  const [isInternalHovered, setIsInternalHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const isHovered = isExternalHovered || isInternalHovered;
 
   const radius = useSpring(0, { damping: 20, stiffness: 100 });
 
@@ -26,7 +36,8 @@ export default function Project({ project }: ProjectProps) {
     <div
       ref={containerRef}
       onMouseEnter={() => {
-        setIsHovered(true);
+        setIsInternalHovered(true);
+        setHovered?.();
         window.dispatchEvent(
           new CustomEvent("component-cursor", {
             detail: { active: true, icon: "ArrowUpRight" },
@@ -34,7 +45,8 @@ export default function Project({ project }: ProjectProps) {
         );
       }}
       onMouseLeave={() => {
-        setIsHovered(false);
+        setIsInternalHovered(false);
+        resetHover?.();
         window.dispatchEvent(
           new CustomEvent("component-cursor", {
             detail: { active: false, icon: "" },
