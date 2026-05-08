@@ -9,6 +9,7 @@ import heroImage6 from "@/assets/background/spaseekers.webp";
 import { useState, useEffect } from "react";
 import AchievementBadges from "./AchievementBadges";
 import HeroBigText from "./hero/HeroBigText";
+import PlatformLogo from "./hero/PlatformLogo";
 const images = [
   heroImage1,
   heroImage2,
@@ -61,6 +62,7 @@ export default function Hero() {
           <p className="text-white font-medium tracking-tight text-lg md:text-xl lg:text-3xl">
             on every searchable platform
           </p>
+          <PlatformLogo />
         </div>
       </div>
     </section>
