@@ -22,15 +22,12 @@ export default function FeaturedWork() {
           </p>
           <motion.div style={{ y: y2 }} className="flex flex-col gap-y-4">
             {projectsData.map((project) => (
-              <div
-                className="flex justify-between items-center gap-x-2"
-                key={project.id}
-              >
+              <div className="flex items-start gap-x-2" key={project.id}>
                 <h2 className="text-4xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[0.9]">
                   {project.title}
                 </h2>
                 <span className="text-white text-xs font-medium mt-2">
-                  {project.timeline}
+                  {`[${project.timeline}]`}
                 </span>
               </div>
             ))}
