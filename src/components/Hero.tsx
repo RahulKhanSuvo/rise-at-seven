@@ -27,16 +27,18 @@ export default function Hero() {
           alt="Hero background"
           fill
           priority
-          className="object-cover rounded-3xl"
+          className="object-cover rounded-4xl scale-105"
         />
 
         <div className="absolute inset-0 backdrop-blur-md" />
+        {/* OVERLAY */}
+        <div className="absolute inset-0 bg-gray-900/30" />
 
         <div className="relative z-10 flex flex-col gap-2 h-full items-center justify-center text-white">
           <p className="uppercase text-xs font-medium leading-tight tracking-tightish max-w-52 text-balance text-center mb-2 text-white">
             #1 Most recommended content marketing agency
           </p>
-          <div className="flex">
+          <div>
             <AchievementBadges />
           </div>
         </div>
