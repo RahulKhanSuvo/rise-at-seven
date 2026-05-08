@@ -19,7 +19,7 @@ export default function Agencies() {
           </p>
         </div>
 
-        <div className="flex-wrap relative md:max-w-lg  text-left gap-2.5 text-justify-start inline-flex  text-grey-900 text-5xl  lg:text-6xl xl:text-7xl 3xl:text-7.5xl 4xl:text-8xl font-sans-primary font-medium tracking-tight">
+        <div className="flex-wrap relative md:max-w-2xl  text-left gap-2.5 text-justify-start inline-flex  text-grey-900 text-5xl  lg:text-6xl xl:text-[5rem] 3xl:text-7.5xl 3xl font-sans-primary font-semibold tracking-tight">
           <div className="inline mr-2 pointer-fine:mr-0">Driving</div>
           <div className="inline mr-2 pointer-fine:mr-0">Demand</div>
           <div className="inline mr-2 pointer-fine:mr-0">&amp;</div>
