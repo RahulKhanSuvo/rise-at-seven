@@ -24,9 +24,14 @@ export default function Agencies() {
           <div className="inline mr-2 pointer-fine:mr-0">Demand</div>
           <div className="inline mr-2 pointer-fine:mr-0">&amp;</div>
           <div className="inline mr-2 pointer-fine:mr-0">Discovery</div>
-          <div className="inline shrink-0 bg-black/10 relative overflow-hidden mr-2 pointer-fine:mr-0">
-            <div className="size-20 relative  ">
-              <Image src={banner} alt="" fill className="object-cover" />
+          <div className="inline shrink-0  relative overflow-hidden mr-2 pointer-fine:mr-0">
+            <div className="size-20 relative ">
+              <Image
+                src={banner}
+                alt=""
+                fill
+                className="object-cover rounded-xl"
+              />
             </div>
           </div>
         </div>
