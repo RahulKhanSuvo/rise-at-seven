@@ -43,13 +43,13 @@ export default function SwiperMarquee() {
         {Array.from({ length: 3 }, (_, round) =>
           LOGOS.map((logo, i) => (
             <SwiperSlide key={`${round}-${i}`} style={{ width: "auto" }}>
-              <div className="flex items-center justify-start w-[140px] h-[70px]">
+              <div className="flex items-center justify-start w-[140px] h-[60px]">
                 <Image
                   src={logo}
                   alt="agency logo"
                   width={90}
                   height={40}
-                  className="object-contain grayscale hover:grayscale-0 transition-all duration-300 max-h-[40px] w-auto"
+                  className="object-contain grayscale hover:grayscale-0 transition-all duration-300 max-h-[40px] w-auto mix-blend-multiply"
                 />
               </div>
             </SwiperSlide>
