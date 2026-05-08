@@ -1,3 +1,3 @@
 export default function FeaturedWork() {
-  return <div>FeaturedWork</div>;
+  return <div></div>;
 }
