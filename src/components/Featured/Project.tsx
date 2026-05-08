@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { ProjectData } from "@/types/project";
-import { ChartLine, Search, ArrowUpRight } from "lucide-react";
+import { ChartLine, Search } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { motion, useSpring, useTransform } from "motion/react";
 
@@ -21,7 +21,6 @@ export default function Project({ project }: ProjectProps) {
     radius.set(isHovered ? 150 : 0);
   }, [isHovered, radius]);
 
-  // Create the clipPath string reactively
   const clipPath = useTransform(radius, (r) => `circle(${r}% at 50% 100%)`);
 
   return (
@@ -65,9 +64,7 @@ export default function Project({ project }: ProjectProps) {
         </div>
 
         <div className="w-full flex items-end justify-between">
-          <div className="w-10 lg:w-16 h-10 lg:h-16 flex items-center justify-center rounded-full border border-black/20">
-            <ArrowUpRight className="size-6 lg:size-8" />
-          </div>
+          <div></div>
           {/* Duplicate Badge in reveal layer to match the color theme */}
           <div className="shrink-0 inline-flex items-center rounded-full tracking-tight font-medium leading-none text-current bg-black/10 backdrop-blur-sm text-sm gap-x-3 py-2.5 px-3.5 lg:text-base">
             <Search className="size-4 opacity-70" />
