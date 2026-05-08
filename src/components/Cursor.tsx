@@ -19,7 +19,7 @@ export default function Cursor() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const springConfig = { damping: 25, stiffness: 250 };
+  const springConfig = { damping: 25, stiffness: 350 };
   const springX = useSpring(mouseX, springConfig);
   const springY = useSpring(mouseY, springConfig);
 
@@ -60,10 +60,9 @@ export default function Cursor() {
         translateX: "-50%",
         translateY: "-50%",
       }}
-      initial={{ scale: 0, opacity: 0 }}
+      initial={{ scale: 0 }}
       animate={{
         scale: cursorState.active ? 1 : 0,
-        opacity: cursorState.active ? 1 : 0,
       }}
       transition={{ type: "spring", damping: 20, stiffness: 300 }}
     >
