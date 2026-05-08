@@ -17,14 +17,21 @@ export default function HeroBigText({
       </div>
       <div className="flex items-center gap-4">
         <TextSideAnimation text={text3} />
-        <div className="size-[113px] relative">
-          <Image
-            src={heroLogo}
-            alt="background"
-            fill
-            className="object-cover rounded-[17px]"
-          />
-        </div>
+        <motion.div
+          initial={{ width: 0, opacity: 0 }}
+          animate={{ width: 113, opacity: 1 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          className="h-[113px] relative overflow-hidden flex justify-center rounded-3xl"
+        >
+          <div className="w-[113px] h-[113px] relative shrink-0">
+            <Image
+              src={heroLogo}
+              alt="background"
+              fill
+              className="object-cover "
+            />
+          </div>
+        </motion.div>
         <TextSideAnimation text="Leaders" />
       </div>
     </div>
