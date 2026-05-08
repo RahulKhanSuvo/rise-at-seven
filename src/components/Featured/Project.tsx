@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ProjectData } from "@/types/project";
 import { ChartLine, Search, ArrowUpRight } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
-import { motion, useSpring, useMotionValue, useTransform } from "motion/react";
+import { motion, useSpring, useTransform } from "motion/react";
 
 interface ProjectProps {
   project: ProjectData;
@@ -14,14 +14,6 @@ export default function Project({ project }: ProjectProps) {
   const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Mouse position relative to the container for the mask
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  // Smooth mouse coordinates
-  const smoothX = useSpring(mouseX, { damping: 20, stiffness: 300 });
-  const smoothY = useSpring(mouseY, { damping: 20, stiffness: 300 });
-
   // Radius of the circle mask
   const radius = useSpring(0, { damping: 20, stiffness: 100 });
 
@@ -30,26 +22,14 @@ export default function Project({ project }: ProjectProps) {
   }, [isHovered, radius]);
 
   // Create the clipPath string reactively
-  const clipPath = useTransform(
-    [smoothX, smoothY, radius],
-    ([x, y, r]) => `circle(${r}% at ${x}px ${y}px)`,
-  );
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      mouseX.set(e.clientX - rect.left);
-      mouseY.set(e.clientY - rect.top);
-    }
-  };
+  const clipPath = useTransform(radius, (r) => `circle(${r}% at 50% 100%)`);
 
   return (
     <div
       ref={containerRef}
-      onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative grid group w-full aspect-4/3 overflow-hidden mb-8 rounded-2xl cursor-none"
+      className="relative grid group w-full aspect-4/3 overflow-hidden mb-8 rounded-2xl"
     >
       {/* Base Image Layer */}
       <div className="col-start-1 row-start-1 transition-transform duration-700 group-hover:scale-105">
@@ -95,21 +75,6 @@ export default function Project({ project }: ProjectProps) {
             <ChartLine className="size-4 opacity-70" />
           </div>
         </div>
-      </motion.div>
-
-      {/* Custom Cursor Circle (Follows mouse relative to container) */}
-      <motion.div
-        className="absolute top-0 left-0 w-24 h-24 bg-white/20 backdrop-blur-md rounded-full pointer-events-none z-100 flex items-center justify-center mix-blend-difference"
-        style={{
-          x: smoothX,
-          y: smoothY,
-          translateX: "-50%",
-          translateY: "-50%",
-          scale: isHovered ? 1 : 0,
-          opacity: isHovered ? 1 : 0,
-        }}
-      >
-        <ArrowUpRight className="text-white size-8" />
       </motion.div>
     </div>
   );
