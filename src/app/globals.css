@@ -6,6 +6,7 @@
   color-scheme: light;
   --primary-color: #aaf6e4;
   --secondary-color: #FF2400;
+  --swiper-wrapper-transition-timing-function: linear;
 }
 
 @theme inline {
