@@ -28,7 +28,7 @@ export default function SwiperMarquee() {
       <Swiper
         modules={[Autoplay]}
         loop={true}
-        speed={3000}
+        speed={4000}
         autoplay={{
           delay: 0,
           disableOnInteraction: false,
@@ -43,12 +43,12 @@ export default function SwiperMarquee() {
         {Array.from({ length: 6 }, (_, round) =>
           LOGOS.map((logo, i) => (
             <SwiperSlide key={`${round}-${i}`} style={{ width: "auto" }}>
-              <div className="flex items-center justify-start w-[140px] h-[35px]">
+              <div className="flex items-center justify-start w-[160px] h-[30px]">
                 <Image
                   src={logo}
                   alt="agency logo"
                   fill
-                  className="object-contain hover:grayscale-0 transition-all duration-300  w-auto"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </SwiperSlide>
