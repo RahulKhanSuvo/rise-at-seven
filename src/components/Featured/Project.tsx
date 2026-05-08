@@ -72,7 +72,7 @@ export default function Project({ project }: ProjectProps) {
           clipPath,
         }}
       >
-        <div className="text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight leading-[1.1] text-balance">
+        <div className="text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tight leading-[1.1] text-balance">
           {description}
         </div>
 
