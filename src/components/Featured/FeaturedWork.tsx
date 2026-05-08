@@ -18,7 +18,7 @@ export default function FeaturedWork() {
         <div className="flex">
           <p>Featured Work</p>
         </div>
-        <div className="flex h-full items-center overflow-hidden">
+        <div className="w-3/7 h-full items-center overflow-hidden">
           <motion.div style={{ y }}>
             <Projects />
           </motion.div>

@@ -7,17 +7,11 @@ interface ProjectProps {
 export default function Project({ project }: ProjectProps) {
   const { title, image, type, description, color } = project;
   return (
-    <div className="relative group w-[500px] h-[600px] overflow-hidden rounded-2xl bg-zinc-900 shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+    <div className="relative group w-full overflow-hidden mt-10 rounded-2xl duration-500">
       <Image
         src={image}
         alt={title}
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80"
-      />
-
-      {/* Gradient Overlay */}
-      <div
-        className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent opacity-90"
-        style={{ "--item-color": color } as React.CSSProperties}
       />
 
       {/* Content */}
@@ -42,10 +36,6 @@ export default function Project({ project }: ProjectProps) {
       </div>
 
       {/* Color Accent */}
-      <div
-        className="absolute top-6 right-6 w-12 h-12 rounded-full blur-2xl opacity-50"
-        style={{ backgroundColor: color }}
-      />
     </div>
   );
 }
