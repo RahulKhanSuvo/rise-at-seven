@@ -58,7 +58,7 @@ export default function Hero() {
             <AchievementBadges />
           </div>
           <HeroBigText heroLogo={bg} />
-          <p className="text-white font-medium tracking-tight text-lg md:text-xl lg:text-4xl">
+          <p className="text-white font-medium tracking-tight text-lg md:text-xl lg:text-3xl">
             on every searchable platform
           </p>
         </div>
