@@ -11,7 +11,7 @@ import Image from "next/image";
 export default function PlatformLogo() {
   const logos = [logo1, logo2, logo3, logo4, logo6, logo8, logo9, logo10];
   return (
-    <div className="flex gap-14 items-center mt-5">
+    <div className="flex gap-14 items-center mt-8">
       {logos.map((logo, index) => (
         <div
           key={index}

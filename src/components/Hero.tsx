@@ -65,6 +65,19 @@ export default function Hero() {
           <PlatformLogo />
         </div>
       </div>
+      <div className="absolute z-40 bottom-6 left-6 right-6 ">
+        <div className="flex gap-5 justify-between text-white">
+          <p className="text-wrap text-sm text-start">
+            Organic media planners creating, distributing &amp; <br />{" "}
+            optimizing search-first content for SEO, Social, PR, Ai and LLM
+            search
+          </p>
+          <p className="text-wrap text-sm text-end">
+            4 Global Offices serving <br />
+            UK, USA (New York) & EU
+          </p>
+        </div>
+      </div>
     </section>
   );
 }
