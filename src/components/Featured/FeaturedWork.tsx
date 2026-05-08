@@ -32,7 +32,7 @@ export default function FeaturedWork() {
           <motion.div style={{ y: y2 }} className="flex flex-col gap-y-4">
             {projectsData.map((project) => (
               <div className="flex items-start gap-x-2" key={project.id}>
-                <h2 className="text-4xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[0.9]">
+                <h2 className="text-4xl lg:text-6xl xl:text-[4.8rem] font-semibold tracking-tight leading-[0.9]">
                   {project.title}
                 </h2>
                 <span className="text-white text-xs font-medium mt-2">
