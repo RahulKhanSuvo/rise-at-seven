@@ -1,6 +1,7 @@
 import Image from "next/image";
 import SwiperMarquee from "./SwiperMarquee";
 import banner from "@/assets/banner/b2087e0cd3f699d3efc76f809ec72a85a6ab378e-1080x1350.webp";
+import Button from "@/utils/Button";
 
 export default function Agencies() {
   return (
@@ -19,21 +20,24 @@ export default function Agencies() {
           </p>
         </div>
 
-        <div className="flex-wrap relative md:max-w-2xl  text-left gap-2.5 text-justify-start inline-flex  text-grey-900 text-5xl  lg:text-6xl xl:text-[5rem] 3xl:text-7.5xl 3xl font-sans-primary font-semibold tracking-tight">
-          <div className="inline mr-2 pointer-fine:mr-0">Driving</div>
-          <div className="inline mr-2 pointer-fine:mr-0">Demand</div>
-          <div className="inline mr-2 pointer-fine:mr-0">&amp;</div>
-          <div className="inline mr-2 pointer-fine:mr-0">Discovery</div>
-          <div className="inline shrink-0  relative overflow-hidden mr-2 pointer-fine:mr-0">
-            <div className="size-20 relative ">
-              <Image
-                src={banner}
-                alt=""
-                fill
-                className="object-cover rounded-xl"
-              />
+        <div className="flex flex-col ">
+          <div className="flex-wrap relative md:max-w-2xl  text-left gap-2.5 text-justify-start inline-flex  text-grey-900 text-5xl  lg:text-6xl xl:text-[5rem] 3xl:text-7.5xl 3xl font-sans-primary font-semibold tracking-tight">
+            <div className="inline mr-2 pointer-fine:mr-0">Driving</div>
+            <div className="inline mr-2 pointer-fine:mr-0">Demand</div>
+            <div className="inline mr-2 pointer-fine:mr-0">&amp;</div>
+            <div className="inline mr-2 pointer-fine:mr-0">Discovery</div>
+            <div className="inline shrink-0  relative overflow-hidden mr-2 pointer-fine:mr-0">
+              <div className="size-20 relative ">
+                <Image
+                  src={banner}
+                  alt=""
+                  fill
+                  className="object-cover rounded-xl"
+                />
+              </div>
             </div>
           </div>
+          <Button href="/work" text="See our work" />
         </div>
       </div>
     </section>
