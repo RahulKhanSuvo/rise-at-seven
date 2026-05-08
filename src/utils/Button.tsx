@@ -3,21 +3,32 @@
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import clsx from "clsx";
 
 type AnimatedButtonProps = {
   href: string;
   text: string;
+  variant?: "solid" | "outline";
 };
 
 const MotionLink = motion(Link);
 
-export default function Button({ href, text }: AnimatedButtonProps) {
+export default function Button({
+  href,
+  text,
+  variant = "solid",
+}: AnimatedButtonProps) {
   return (
     <MotionLink
       href={href}
       initial="initial"
       whileHover="hovered"
-      className="group inline-flex items-center justify-center overflow-hidden rounded-3xl bg-white px-6 py-3 text-base font-medium text-black transition-all duration-300 hover:rounded-xl"
+      className={clsx(
+        "group inline-flex items-center justify-center overflow-hidden rounded-3xl px-6 py-3 text-base font-medium transition-all duration-300 hover:rounded-xl",
+        variant === "solid" && "bg-white text-black border border-white",
+        variant === "outline" &&
+          "border border-white bg-transparent text-white hover:bg-white hover:text-black",
+      )}
     >
       <div className="relative h-6 overflow-hidden">
         {/* First Text */}

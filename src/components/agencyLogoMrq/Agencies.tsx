@@ -37,7 +37,10 @@ export default function Agencies() {
               </div>
             </div>
           </div>
-          <Button href="/work" text="See our work" />
+          <div className="flex justify-self-auto gap-4 mt-4">
+            <Button href="/work" text="Our Story" />
+            <Button href="/work" text="Our Services" />
+          </div>
         </div>
       </div>
     </section>
