@@ -10,7 +10,7 @@ export default function FeaturedWork() {
     offset: ["start start", "end end"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-88.60%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-0.50%", "-89%"]);
   const y2 = useTransform(scrollYProgress, [0, 1], ["25%", "-40%"]);
 
   return (
@@ -26,7 +26,7 @@ export default function FeaturedWork() {
                 className="flex justify-between items-center gap-x-2"
                 key={project.id}
               >
-                <h2 className="text-4xl lg:text-6xl xl:text-7xl font-medium tracking-tight leading-[0.9] uppercase">
+                <h2 className="text-4xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[0.9]">
                   {project.title}
                 </h2>
                 <span className="text-white text-xs font-medium mt-2">
