@@ -29,7 +29,6 @@ export default function Hero() {
           priority
           className="object-cover rounded-4xl scale-105"
         />
-
         <div className="absolute inset-0 backdrop-blur-md" />
         {/* OVERLAY */}
         <div className="absolute inset-0 bg-gray-900/30" />
