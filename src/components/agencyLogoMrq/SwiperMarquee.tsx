@@ -28,14 +28,14 @@ export default function SwiperMarquee() {
       <Swiper
         modules={[Autoplay]}
         loop={true}
-        speed={2800}
+        speed={3000}
         autoplay={{
           delay: 0,
           disableOnInteraction: false,
           pauseOnMouseEnter: false,
         }}
         allowTouchMove={true}
-        spaceBetween={100}
+        spaceBetween={120}
         slidesPerView="auto"
         centeredSlides={false}
         watchSlidesProgress={true}
@@ -47,9 +47,8 @@ export default function SwiperMarquee() {
                 <Image
                   src={logo}
                   alt="agency logo"
-                  width={90}
-                  height={40}
-                  className="object-contain grayscale hover:grayscale-0 transition-all duration-300 max-h-[40px] w-auto mix-blend-multiply"
+                  fill
+                  className="object-contain grayscale hover:grayscale-0 transition-all duration-300 max-h-[30px] w-auto mix-blend-multiply"
                 />
               </div>
             </SwiperSlide>
