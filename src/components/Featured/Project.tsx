@@ -14,7 +14,6 @@ export default function Project({ project }: ProjectProps) {
   const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Radius of the circle mask
   const radius = useSpring(0, { damping: 20, stiffness: 100 });
 
   useEffect(() => {
@@ -26,9 +25,23 @@ export default function Project({ project }: ProjectProps) {
   return (
     <div
       ref={containerRef}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="relative grid group w-full aspect-4/3 overflow-hidden mb-8 rounded-2xl"
+      onMouseEnter={() => {
+        setIsHovered(true);
+        window.dispatchEvent(
+          new CustomEvent("component-cursor", {
+            detail: { active: true, icon: "ArrowUpRight" },
+          }),
+        );
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        window.dispatchEvent(
+          new CustomEvent("component-cursor", {
+            detail: { active: false, icon: "" },
+          }),
+        );
+      }}
+      className="relative grid group w-full aspect-4/3 overflow-hidden mb-8 rounded-2xl cursor-none"
     >
       {/* Base Image Layer */}
       <div className="col-start-1 row-start-1 transition-transform duration-700 group-hover:scale-105">
