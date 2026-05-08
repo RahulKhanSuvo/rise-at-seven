@@ -15,25 +15,7 @@ export default function Project({ project }: ProjectProps) {
       />
 
       {/* Content */}
-      <div className="absolute bottom-0 left-0 p-8 w-full transform transition-transform duration-500">
-        <span
-          className="text-xs font-mono uppercase tracking-widest mb-2 block"
-          style={{ color }}
-        >
-          {type}
-        </span>
-        <h2 className="text-4xl font-bold text-white mb-2 leading-tight">
-          {title}
-        </h2>
-        <p className="text-zinc-400 text-sm max-w-xs line-clamp-2 mb-4">
-          {description}
-        </p>
-
-        <div
-          className="h-[2px] w-0 group-hover:w-full transition-all duration-700 ease-out"
-          style={{ backgroundColor: color }}
-        />
-      </div>
+      <div className="absolute bottom-0 left-0 p-8 w-full transform transition-transform duration-500"></div>
 
       {/* Color Accent */}
     </div>
