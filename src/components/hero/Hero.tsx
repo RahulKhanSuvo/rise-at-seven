@@ -8,8 +8,8 @@ import heroImage5 from "@/assets/background/Screenshot-2025-07-01-at-21.36.35.we
 import heroImage6 from "@/assets/background/spaseekers.webp";
 import { useState, useEffect } from "react";
 import AchievementBadges from "./AchievementBadges";
-import HeroBigText from "./hero/HeroBigText";
-import PlatformLogo from "./hero/PlatformLogo";
+import HeroBigText from "./HeroBigText";
+import PlatformLogo from "./PlatformLogo";
 const images = [
   heroImage1,
   heroImage2,

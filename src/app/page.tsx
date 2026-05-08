@@ -1,5 +1,5 @@
-import Hero from "@/components/Hero";
-import TopBar from "@/components/TopBar";
+import Hero from "@/components/hero/Hero";
+import TopBar from "@/components/hero/TopBar";
 
 export default function Home() {
   return (
