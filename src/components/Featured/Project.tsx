@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ProjectData } from "@/types/project";
-import { Search } from "lucide-react";
+import { ChartLine, Search } from "lucide-react";
 
 interface ProjectProps {
   project: ProjectData;
@@ -16,8 +16,12 @@ export default function Project({ project }: ProjectProps) {
       />
 
       {/* Content */}
-      <div className="absolute bottom-0 left-0 p-8 w-full transform transition-transform duration-500">
-        <Search />
+      <div className="absolute bottom-0 right-0 p-8 transform transition-transform duration-500">
+        <div className="flex items-center rounded-full font-medium text-white bg-white/20 backdrop-blur-sm text-sm gap-x-1.5 py-2 px-3.5">
+          <Search className="text-white size-4" />
+          <span className="text-white">{type}</span>
+          <ChartLine className="text-white size-4" />
+        </div>
       </div>
 
       {/* Color Accent */}
