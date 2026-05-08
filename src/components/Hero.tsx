@@ -18,18 +18,20 @@ export default function Hero() {
   }, []);
   return (
     <section className="w-full h-screen-fix h-svh relative p-2">
-      <Image
-        src={bg}
-        alt="Hero background"
-        fill
-        priority
-        className="object-cover"
-      />
+      <div className="w-full h-full bg-red-100 relative rounded-3xl overflow-hidden">
+        <Image
+          src={bg}
+          alt="Hero background"
+          fill
+          priority
+          className="object-cover"
+        />
 
-      <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/40" />
 
-      <div className="relative z-10 flex h-full items-center justify-center text-white">
-        <h1 className="text-5xl font-bold">Hero Section</h1>
+        <div className="relative z-10 flex h-full items-center justify-center text-white">
+          <h1 className="text-5xl font-bold">Hero Section</h1>
+        </div>
       </div>
     </section>
   );
