@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ProjectData } from "@/types/project";
+import { Search } from "lucide-react";
 
 interface ProjectProps {
   project: ProjectData;
@@ -15,7 +16,9 @@ export default function Project({ project }: ProjectProps) {
       />
 
       {/* Content */}
-      <div className="absolute bottom-0 left-0 p-8 w-full transform transition-transform duration-500"></div>
+      <div className="absolute bottom-0 left-0 p-8 w-full transform transition-transform duration-500">
+        <Search />
+      </div>
 
       {/* Color Accent */}
     </div>
