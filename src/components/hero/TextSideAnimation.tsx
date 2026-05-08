@@ -5,7 +5,7 @@ export default function TextSideAnimation({ text }: { text: string }) {
       {text.split("").map((letter, index) => (
         <motion.span
           key={index}
-          className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 4xl:text-10xl font-semibold leading-none tracking-tight"
+          className=" text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem] font-semibold leading-none tracking-tight"
           initial={{ y: 100 }}
           animate={{ y: 0 }}
           transition={{

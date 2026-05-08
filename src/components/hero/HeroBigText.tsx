@@ -15,7 +15,7 @@ export default function HeroBigText({
         <TextSideAnimation text={text1} />
         <TextSideAnimation text={text2} />
       </div>
-      <div className="flex items-center gap-4 overflow-hidden h-fit">
+      <div className="flex items-center gap-4 overflow-hidden h-fit pb-6">
         <TextSideAnimation text={text3} />
         <motion.div
           initial={{ width: 0, opacity: 0 }}
