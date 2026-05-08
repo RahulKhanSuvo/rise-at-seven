@@ -6,6 +6,7 @@ import heroImage3 from "@/assets/background/unnamed-6.webp";
 import heroImage4 from "@/assets/background/Emirates-airpline-in-flight.webp";
 import { useState, useEffect } from "react";
 import AchievementBadges from "./AchievementBadges";
+import HeroBigText from "./hero/HeroBigText";
 const images = [heroImage1, heroImage2, heroImage3, heroImage4];
 export default function Hero() {
   const [bg, setBg] = useState(images[0]);
@@ -40,6 +41,7 @@ export default function Hero() {
           <div>
             <AchievementBadges />
           </div>
+          <HeroBigText heroLogo={bg} />
         </div>
       </div>
     </section>
