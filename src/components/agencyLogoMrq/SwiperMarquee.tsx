@@ -17,7 +17,7 @@ const LOGOS: StaticImageData[] = [logo1, logo2, logo3, logo4, logo5, logo6];
 
 export default function SwiperMarquee() {
   return (
-    <div className="relative w-full bg-white overflow-hidden select-none">
+    <div className="relative w-full bg-white overflow-hidden select-none py-8">
       {/* Left and Right Gradient Blur Overlays */}
       <div className="absolute left-0 top-0 bottom-0 w-60 z-10 pointer-events-none backdrop-blur-sm mask-[linear-gradient(to_right,black_20%,transparent)]" />
       <div className="absolute right-0 top-0 bottom-0 w-60 z-10 pointer-events-none backdrop-blur-sm mask-[linear-gradient(to_left,black_20%,transparent)]" />
@@ -40,15 +40,15 @@ export default function SwiperMarquee() {
         centeredSlides={false}
         watchSlidesProgress={true}
       >
-        {Array.from({ length: 5 }, (_, round) =>
+        {Array.from({ length: 6 }, (_, round) =>
           LOGOS.map((logo, i) => (
             <SwiperSlide key={`${round}-${i}`} style={{ width: "auto" }}>
-              <div className="flex items-center justify-start w-[140px] h-[60px]">
+              <div className="flex items-center justify-start w-[140px] h-[35px]">
                 <Image
                   src={logo}
                   alt="agency logo"
                   fill
-                  className="object-contain grayscale hover:grayscale-0 transition-all duration-300 max-h-[30px] w-auto mix-blend-multiply"
+                  className="object-contain hover:grayscale-0 transition-all duration-300  w-auto"
                 />
               </div>
             </SwiperSlide>
