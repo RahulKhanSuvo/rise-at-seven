@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import Projects from "./Projects";
 import { projectsData } from "@/data/projectData";
-import Button from "@/utils/Button";
+import Button from "@/common/Button";
 
 export default function FeaturedWork() {
   const containerRef = useRef(null);

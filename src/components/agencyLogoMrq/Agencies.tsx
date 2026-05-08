@@ -1,7 +1,7 @@
 import Image from "next/image";
 import SwiperMarquee from "./SwiperMarquee";
 import banner from "@/assets/banner/b2087e0cd3f699d3efc76f809ec72a85a6ab378e-1080x1350.webp";
-import Button from "@/utils/Button";
+import Button from "@/common/Button";
 
 export default function Agencies() {
   return (

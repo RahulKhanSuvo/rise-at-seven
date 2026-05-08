@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from "next/image";
-import TextSideAnimation from "../../utils/TextSideAnimation";
+import TextSideAnimation from "../../common/TextSideAnimation";
 import { motion } from "motion/react";
 export default function HeroBigText({
   heroLogo,
