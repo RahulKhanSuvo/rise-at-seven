@@ -25,7 +25,7 @@ export default function FeaturedWork() {
               <div className="w-full h-32 pointer-events-none bg-linear-to-b from-black to-transparent "></div>
             </div>
             <div>
-              <div className="w-full h-40 pointer-events-none bg-linear-to-b from-transparent to-black "></div>
+              <div className="w-full h-50 pointer-events-none bg-linear-to-b from-transparent to-black "></div>
               <div className="text-lg md:text-2xl font-semibold bg-black w-full h-55 "></div>
             </div>
           </div>
