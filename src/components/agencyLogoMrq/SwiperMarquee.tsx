@@ -18,9 +18,13 @@ const LOGOS: StaticImageData[] = [logo1, logo2, logo3, logo4, logo5, logo6];
 export default function SwiperMarquee() {
   return (
     <div className="relative w-full py-10 bg-white overflow-hidden select-none">
-      {/* Left and Right Blur/Gradient Overlays */}
-      <div className="absolute left-0 top-0 bottom-0 w-40 bg-linear-to-r from-white/80 to-transparent z-10 pointer-events-none backdrop-blur-sm" />
-      <div className="absolute right-0 top-0 bottom-0 w-40 bg-linear-to-l from-white/80 to-transparent z-10 pointer-events-none backdrop-blur-sm" />
+      {/* Left and Right Gradient Blur Overlays */}
+      <div className="absolute left-0 top-0 bottom-0 w-60 z-10 pointer-events-none backdrop-blur-sm mask-[linear-gradient(to_right,black_20%,transparent)]" />
+      <div className="absolute right-0 top-0 bottom-0 w-60 z-10 pointer-events-none backdrop-blur-sm mask-[linear-gradient(to_left,black_20%,transparent)]" />
+
+      {/* White color fade (separate from blur for better control) */}
+      <div className="absolute left-0 top-0 bottom-0 w-40 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-40 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
       <Swiper
         modules={[Autoplay]}
         loop={true}
