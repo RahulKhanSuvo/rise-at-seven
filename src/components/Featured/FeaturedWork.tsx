@@ -1,8 +1,10 @@
 "use client";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import Link from "next/link";
 import Projects from "./Projects";
 import { projectsData } from "@/data/projectData";
+
 export default function FeaturedWork() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -17,7 +19,7 @@ export default function FeaturedWork() {
     <section ref={containerRef} className="py-16 h-[1000vh] px-4 md:px-7">
       <div className="px-4 md:px-10 flex h-[90vh] overflow-hidden justify-between items-center flex-wrap sticky top-20 bg-black text-white rounded-3xl">
         <div className="flex flex-col relative">
-          <div className="absolute inset-0 z-20 flex justify-between flex-col">
+          <div className="absolute inset-0 z-20 flex justify-between flex-col pointer-events-none">
             <div>
               <p className="text-lg md:text-2xl font-semibold bg-black w-full pt-16 pb-10">
                 Featured Work
@@ -31,14 +33,21 @@ export default function FeaturedWork() {
           </div>
           <motion.div style={{ y: y2 }} className="flex flex-col gap-y-4">
             {projectsData.map((project) => (
-              <div className="flex items-start gap-x-2" key={project.id}>
-                <h2 className="text-4xl lg:text-6xl xl:text-[4.8rem] font-semibold tracking-tight leading-[0.9]">
-                  {project.title}
-                </h2>
-                <span className="text-white text-xs font-medium mt-2">
-                  {`[${project.timeline}]`}
-                </span>
-              </div>
+              <Link href={`/projects/${project.id}`} key={project.id}>
+                <motion.div
+                  whileHover={{ x: 20, cursor: "pointer" }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="flex items-start gap-x-2 z-30"
+                  key={project.id}
+                >
+                  <h2 className="text-4xl lg:text-6xl xl:text-[4.8rem] font-semibold tracking-tight leading-[0.9]">
+                    {project.title}
+                  </h2>
+                  <span className="text-white text-xs font-medium mt-2">
+                    {`[${project.timeline}]`}
+                  </span>
+                </motion.div>
+              </Link>
             ))}
           </motion.div>
         </div>
