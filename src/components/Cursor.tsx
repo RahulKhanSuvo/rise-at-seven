@@ -67,7 +67,7 @@ export default function Cursor() {
       }}
       transition={{ type: "spring", damping: 20, stiffness: 300 }}
     >
-      <IconComponent size={32} />
+      <IconComponent className="text-black" size={32} />
     </motion.div>
   );
 }
