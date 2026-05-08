@@ -15,23 +15,28 @@ export default function FeaturedWork() {
 
   return (
     <section ref={containerRef} className="py-16 h-[1000vh] px-4 md:px-7">
-      <div className="px-4 md:px-6 flex h-[90vh] overflow-hidden justify-between items-center flex-wrap sticky top-10 bg-black text-white rounded-3xl">
-        <div className="flex flex-col gap-y-4">
+      <div className="px-4 md:px-6 flex h-[90vh] overflow-hidden justify-between items-center flex-wrap sticky top-20 bg-black text-white rounded-3xl">
+        <div className="flex flex-col ">
           <p className="text-sm uppercase tracking-widest opacity-60">
             Featured Work
           </p>
           <motion.div style={{ y: y2 }} className="flex flex-col gap-y-4">
             {projectsData.map((project) => (
-              <div key={project.id}>
+              <div
+                className="flex justify-between items-center gap-x-2"
+                key={project.id}
+              >
                 <h2 className="text-4xl lg:text-6xl xl:text-7xl font-medium tracking-tight leading-[0.9] uppercase">
                   {project.title}
                 </h2>
-                <span>{project.timeline}</span>
+                <span className="text-white text-xs font-medium mt-2">
+                  {project.timeline}
+                </span>
               </div>
             ))}
           </motion.div>
         </div>
-        <div className="w-3/7 h-full items-center overflow-hidden">
+        <div className="w-3/7 h-full items-center">
           <motion.div style={{ y }}>
             <Projects />
           </motion.div>
