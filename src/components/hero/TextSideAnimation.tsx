@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 export default function TextSideAnimation({ text }: { text: string }) {
   return (
-    <div className="inline-flex">
+    <div className="inline-flex ">
       {text.split("").map((letter, index) => (
         <motion.span
           key={index}
