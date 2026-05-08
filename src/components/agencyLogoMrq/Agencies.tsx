@@ -4,16 +4,16 @@ import banner from "@/assets/banner/b2087e0cd3f699d3efc76f809ec72a85a6ab378e-108
 
 export default function Agencies() {
   return (
-    <section>
+    <section className="pt-16">
       <div className="w-full flex flex-col md:flex-row  md:items-center px-4 md:px-6 bg-white">
         <p className="  text-nowrap w-40 text-sm font-medium">
           The agency behind...
         </p>
         <SwiperMarquee />
       </div>
-      <div className="py-12 px-4 md:px-7 flex justify-between">
+      <div className=" py-12 md:py-24 px-4 md:px-7 flex justify-between">
         <div className="w-full mb-1 md:mt-2 md:mb-0 max-w-sm xl:max-w-xl 3xl:max-w-2xl 4xl:max-w-3xl">
-          <p className="inline-flex flex-wrap text-balance relative text-left justify-start text-black text-lg/tight lg:text-lg/tight xl:text-2xl 4xl:text-3xl font-sans-primary font-medium tracking-tight">
+          <p className="inline-flex flex-wrap text-balance relative text-left justify-start text-black text-lg/tight lg:text-lg/tight xl:text-2xl 4xl:text-3xl font-medium xl:leading-[1.3] tracking-tight">
             A global team of search-first content marketers engineering semantic
             relevancy & category signals for both the internet and people
           </p>
