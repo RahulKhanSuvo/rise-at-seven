@@ -11,11 +11,11 @@ export default function FeaturedWork() {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["-0.50%", "-89%"]);
-  const y2 = useTransform(scrollYProgress, [0, 1], ["25%", "-40%"]);
+  const y2 = useTransform(scrollYProgress, [0, 1], ["25%", "-50%"]);
 
   return (
     <section ref={containerRef} className="py-16 h-[1000vh] px-4 md:px-7">
-      <div className="px-4 md:px-6 flex h-[90vh] overflow-hidden justify-between items-center flex-wrap sticky top-20 bg-black text-white rounded-3xl">
+      <div className="px-4 md:px-10 flex h-[90vh] overflow-hidden justify-between items-center flex-wrap sticky top-20 bg-black text-white rounded-3xl">
         <div className="flex flex-col ">
           <p className="text-sm uppercase tracking-widest opacity-60">
             Featured Work
