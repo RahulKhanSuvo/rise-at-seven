@@ -11,11 +11,11 @@ export default function HeroBigText({
   const text3 = "Category";
   return (
     <div className="flex w-screen justify-center flex-col items-center ">
-      <div className="flex gap-2.5">
+      <div className="flex gap-2.5 overflow-hidden h-fit">
         <TextSideAnimation text={text1} />
         <TextSideAnimation text={text2} />
       </div>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 overflow-hidden h-fit">
         <TextSideAnimation text={text3} />
         <motion.div
           initial={{ width: 0, opacity: 0 }}

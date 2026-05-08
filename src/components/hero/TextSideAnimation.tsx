@@ -6,7 +6,7 @@ export default function TextSideAnimation({ text }: { text: string }) {
         <motion.span
           key={index}
           className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 4xl:text-10xl font-semibold leading-none tracking-tight"
-          initial={{ y: 30 }}
+          initial={{ y: 100 }}
           animate={{ y: 0 }}
           transition={{
             duration: 0.5,
