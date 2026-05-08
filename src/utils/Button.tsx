@@ -26,8 +26,7 @@ export default function Button({
       className={clsx(
         "group inline-flex items-center justify-center overflow-hidden rounded-3xl px-6 py-3 text-base font-medium transition-all duration-300 hover:rounded-xl",
         variant === "solid" && "bg-white text-black border border-white",
-        variant === "outline" &&
-          "border border-white bg-transparent text-white hover:bg-white hover:text-black",
+        variant === "outline" && " bg-transparent text-black",
       )}
     >
       <div className="relative h-6 overflow-hidden">
