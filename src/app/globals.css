@@ -4,6 +4,8 @@
   --background: #ffffff;
   --foreground: #171717;
   color-scheme: light;
+  --primary-color: #aaf6e4;
+  --secondary-color: #FF2400;
 }
 
 @theme inline {
@@ -11,6 +13,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-hanken-grotesk);
   --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary-color);
+  --color-secondary: var(--secondary-color);
 }
 
 

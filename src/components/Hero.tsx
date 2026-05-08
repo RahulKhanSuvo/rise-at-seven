@@ -2,15 +2,22 @@
 import Image from "next/image";
 import heroImage1 from "@/assets/background/RedBull.webp";
 import heroImage2 from "@/assets/background/Pooky-Rechargable.webp";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const images = [heroImage1, heroImage2];
 export default function Hero() {
-  const [bg] = useState(() => {
+  const [bg, setBg] = useState(images[0]);
+
+  useEffect(() => {
     const randomIndex = Math.floor(Math.random() * images.length);
-    return images[randomIndex];
-  });
+    const nextBg = images[randomIndex];
+    const timeoutId = setTimeout(() => {
+      setBg(nextBg);
+    }, 0);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="w-full h-screen-fix h-svh relative p-2">
       <Image
         src={bg}
         alt="Hero background"
