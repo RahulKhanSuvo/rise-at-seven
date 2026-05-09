@@ -31,7 +31,10 @@ export default function RootLayout({
       lang="en"
       className={`${hankenGrotesk.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col relative">
+      <body
+        className="min-h-full flex flex-col relative"
+        suppressHydrationWarning
+      >
         <PageLoader />
         <Cursor />
         <SmoothScroll>{children}</SmoothScroll>
