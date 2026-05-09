@@ -34,14 +34,12 @@ export default function Navbar() {
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
 
-    // Show if scrolling up, hide if scrolling down
     if (latest > previous && latest > 100) {
       setIsVisible(false);
     } else {
       setIsVisible(true);
     }
 
-    // Toggle background based on scroll position
     if (latest > 50) {
       setHideHeaderBackground(false);
       setIsAtTop(false);
@@ -61,11 +59,10 @@ export default function Navbar() {
     >
       <nav
         className={cn(
-          "w-full flex items-center justify-between relative z-20 px-4 transition-all duration-500 lg:px-3 lg:rounded-full",
+          "w-full flex items-center justify-between relative z-20 p-4 transition-all duration-500 lg:px-3 lg:rounded-full",
           !hideHeaderBackground
             ? "bg-white/60 backdrop-blur-lg shadow-sm"
             : "bg-transparent",
-          // Small adjustment for vertical positioning when not at top
           !isAtTop ? "py-1" : "",
         )}
       >
@@ -119,7 +116,7 @@ function Logo({ isDark }: { isDark: boolean }) {
         isDark ? "text-black" : "text-white",
       )}
     >
-      <div className="aspect-4/3 text-current">
+      <div className="text-current">
         <svg
           className="w-full h-full object-contain fill-current"
           xmlns="http://www.w3.org/2000/svg"
