@@ -5,7 +5,7 @@ import heroLogo from "@/assets/banner/IMG_5079.webp";
 
 export default function WhatsNew() {
   return (
-    <section>
+    <section className="px-4 md:px-7">
       {/* tile */}
       <div className="flex justify-between items-center border-b border-gray-300 pb-3">
         <div className="flex flex-wrap gap-2.5">
