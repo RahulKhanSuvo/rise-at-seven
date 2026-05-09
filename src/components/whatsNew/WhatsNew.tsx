@@ -1,7 +1,7 @@
 import AnimatedLogo from "@/common/AnimatedLogo";
 import Button from "@/common/Button";
 import TextSideAnimation from "@/common/TextSideAnimation";
-import heroLogo from "@/assets/banner/IMG_5079.webp";
+import heroLogo from "@/assets/whatnew/FOS25-3380.webp";
 import WhatsNewContent from "./whatsNewContent";
 
 export default function WhatsNew() {
