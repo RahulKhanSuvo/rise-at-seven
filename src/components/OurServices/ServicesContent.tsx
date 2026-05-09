@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ServicesContent() {
   return (
-    <div className="flex flex-col">
+    <div className="grid grid-cols-1 md:grid-cols-2 ">
       {servicesContentData.map((item) => (
         <div key={item.id} className="group relative w-full">
           {/* Bottom border separator */}
@@ -31,7 +31,7 @@ export default function ServicesContent() {
                 <div className="relative">
                   {/* Sliding Arrow (reveals on hover) */}
                   <div className="absolute left-0 top-0 overflow-hidden pr-2">
-                    <div className="translate-y-full -rotate-45 translate-x-[-100%] transition-transform duration-500 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0">
+                    <div className="translate-y-full -rotate-45 -translate-x-full transition-transform duration-500 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0">
                       <ArrowUpRight className="h-8 w-8 lg:h-10 lg:w-10 xl:h-12 xl:w-12 3xl:h-14 3xl:w-14" />
                     </div>
                   </div>
