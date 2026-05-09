@@ -21,17 +21,19 @@ export default function BriefMarquee() {
 
   const displayItems = [...items, ...items];
 
-  // 🚀 Scroll controls velocity
+  // 🚀 STRONGER + SMOOTHER SCROLL ACCELERATION
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       const delta = e.deltaY;
 
-      // scroll down → push forward
-      // scroll up → push backward (slight reverse)
-      velocityRef.current += delta * 0.5;
+      // clamp raw input (trackpad + mouse consistency)
+      const clampedDelta = Math.max(-120, Math.min(120, delta));
 
-      // clamp so it doesn’t go crazy
-      velocityRef.current = Math.max(-5, Math.min(5, velocityRef.current));
+      // 🔥 stronger acceleration
+      velocityRef.current += clampedDelta * 0.12;
+
+      // safety clamp (prevents chaos)
+      velocityRef.current = Math.max(-3, Math.min(3, velocityRef.current));
     };
 
     window.addEventListener("wheel", handleWheel, { passive: true });
@@ -39,17 +41,22 @@ export default function BriefMarquee() {
     return () => window.removeEventListener("wheel", handleWheel);
   }, []);
 
-  // 🧠 animation loop
+  // 🎮 physics loop (smooth decay + motion)
   useAnimationFrame(() => {
-    // decay velocity (return to normal)
-    velocityRef.current *= 0.92;
+    // smooth return-to-zero (instead of harsh multiply)
+    velocityRef.current += (0 - velocityRef.current) * 0.12;
 
-    // base movement + scroll influence
     const currentX = x.get();
-    x.set(currentX - (speedRef.current + velocityRef.current));
 
-    // reset loop
-    if (currentX <= -2000) x.set(0);
+    // combined motion
+    const move = speedRef.current + velocityRef.current * 1.3;
+
+    x.set(currentX - move * 0.98);
+
+    // simple infinite reset
+    if (currentX <= -2000) {
+      x.set(0);
+    }
   });
 
   const dispatchCursor = (active: boolean, text?: string) => {
