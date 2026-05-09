@@ -30,7 +30,7 @@ export default function WhatNewCard({ item }: WhatNewCardProps) {
 
   return (
     <Link
-      href={item.href}
+      href={"#"}
       className="w-full flex flex-col items-start gap-y-5 transition-transform duration-300 cursor-none"
       onMouseEnter={() => {
         setIsHovered(true);
