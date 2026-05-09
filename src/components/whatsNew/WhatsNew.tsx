@@ -2,27 +2,37 @@ import AnimatedLogo from "@/common/AnimatedLogo";
 import Button from "@/common/Button";
 import TextSideAnimation from "@/common/TextSideAnimation";
 import heroLogo from "@/assets/banner/IMG_5079.webp";
+import WhatsNewContent from "./whatsNewContent";
 
 export default function WhatsNew() {
   return (
-    <section className="px-4 md:px-7">
+    <section className="px-4 md:px-7 py-12 xl:py-24">
       {/* tile */}
-      <div className="flex justify-between items-center border-b border-gray-300 pb-3">
-        <div className="flex flex-wrap gap-2.5">
+      <div className="flex flex-col md:flex-row justify-between md:items-center border-b border-gray-300 pb-3 md:pb-5 gap-y-4">
+        <div className="flex flex-wrap items-center gap-2.5">
           <TextSideAnimation
-            className="text-5xl md:text-7xl lg:text-8xl "
+            className="text-5xl md:text-7xl lg:text-8xl"
             text="What's"
           />
           <AnimatedLogo size={90} src={heroLogo} delay={0.8} />
           <TextSideAnimation
-            className="text-5xl md:text-7xl lg:text-8xl "
+            className="text-5xl md:text-7xl lg:text-8xl"
             text="New"
           />
         </div>
-        <Button href="#" text="Visit All Services" />
+        <div className="hidden md:flex justify-end">
+          <Button href="#" text="Explore More Thoughts" />
+        </div>
       </div>
+
       {/* content */}
-      <div className=""></div>
+      <div className="w-full">
+        <WhatsNewContent />
+      </div>
+
+      <div className="mt-8 flex justify-center md:hidden w-full">
+        <Button href="#" text="Explore More Thoughts" />
+      </div>
     </section>
   );
 }
