@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import { motion, useInView, useAnimation } from "motion/react";
-const hi = "hffhdf";
+
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
   width?: "fit-content" | "100%";
   delay?: number;
 }
