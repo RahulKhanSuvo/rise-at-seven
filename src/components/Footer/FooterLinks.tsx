@@ -4,27 +4,27 @@ import React from "react";
 
 const LINK_COLUMNS = [
   [
-    { label: "Services", href: "https://riseatseven.com/services/" },
-    { label: "Work", href: "https://riseatseven.com/work/" },
-    { label: "About", href: "https://riseatseven.com/about/" },
-    { label: "Culture", href: "https://riseatseven.com/culture/" },
+    { label: "Services", href: "/services" },
+    { label: "Work", href: "/work" },
+    { label: "About", href: "/about" },
+    { label: "Culture", href: "/culture" },
     {
       label: "Meet The Risers",
-      href: "https://riseatseven.com/meet-the-team/",
+      href: "/meet-the-team/",
     },
   ],
   [
-    { label: "Testimonials", href: "https://riseatseven.com/testimonials/" },
-    { label: "Blog & Resources", href: "https://riseatseven.com/blog/" },
-    { label: "Webinars", href: "https://riseatseven.com/webinars/" },
-    { label: "Careers", href: "https://riseatseven.com/careers/" },
+    { label: "Testimonials", href: "/testimonials/" },
+    { label: "Blog & Resources", href: "/blog/" },
+    { label: "Webinars", href: "/webinars/" },
+    { label: "Careers", href: "/careers/" },
   ],
   [
     { label: "Sheffield", href: "https://g.co/kgs/4Br7JaS" },
     { label: "Manchester", href: "https://g.co/kgs/9vh5imK" },
     { label: "London", href: "https://g.co/kgs/hsv6LhR" },
     { label: "New York", href: "https://g.co/kgs/NxzhAKU" },
-    { label: "Contact", href: "https://riseatseven.com/contact/" },
+    { label: "Contact", href: "/contact/" },
   ],
 ];
 

@@ -27,7 +27,7 @@ export default function Footer() {
       className="p-2 grid relative mt-8 lg:mt-0 js-footer"
     >
       {/* Background reveal */}
-      <div className="absolute top-0 left-0 w-full p-2 flex js-footer-background pointer-events-none h-full">
+      <div className="absolute top-0 left-0 w-full p-2 flex  pointer-events-none h-full">
         <motion.div
           style={{ height: backgroundHeight }}
           className="w-full bg-grey-900 rounded-3xl"
