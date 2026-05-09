@@ -1,0 +1,77 @@
+"use client";
+
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import Image from "next/image";
+import { legacyCards } from "@/data/legacyData";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
+/**
+ * Mobile view for the Legacy section
+ */
+const MobileSection = () => (
+  <div className="w-full py-10 px-4 md:px-7 gap-y-3 md:gap-y-5 lg:hidden">
+    <div className="flex justify-center mb-6">
+      <h2 className="text-gray-900 text-sm font-medium tracking-tight uppercase">
+        Legacy In The Making
+      </h2>
+    </div>
+
+    <div className="w-full">
+      <Swiper
+        modules={[Pagination]}
+        spaceBetween={20}
+        slidesPerView={1}
+        pagination={{
+          type: "progressbar",
+          el: ".custom-pagination",
+        }}
+        className="pb-10!"
+      >
+        {legacyCards.map((card) => (
+          <SwiperSlide key={card.id} className="h-auto! flex">
+            <div
+              className={`w-full flex flex-col text-center rounded-2xl p-7 lg:rounded-3xl ${card.bg}`}
+            >
+              <div className="flex flex-col items-center gap-y-3 md:gap-y-5">
+                <div className="rounded-xl overflow-hidden w-full aspect-4/3 relative lg:aspect-square lg:w-48 4xl:w-56">
+                  <Image
+                    src={card.image}
+                    alt={card.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 200px"
+                  />
+                </div>
+
+                <div className="flex flex-col items-center gap-y-4">
+                  <h3
+                    className={`text-3xl font-medium tracking-tight ${card.text} lg:text-5xl`}
+                  >
+                    {card.title}
+                  </h3>
+                  <div className="w-full">
+                    {card.description.map((desc, index) => (
+                      <p
+                        key={index}
+                        className={`text-sm leading-normal mb-5 ${card.text} lg:text-base`}
+                      >
+                        {desc}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+        <div className="custom-pagination mt-8 h-1 bg-gray-200 rounded-full overflow-hidden relative"></div>
+      </Swiper>
+    </div>
+  </div>
+);
+
+export default MobileSection;
