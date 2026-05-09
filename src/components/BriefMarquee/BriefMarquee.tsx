@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useEffect, useRef } from "react";
+import { motion, useMotionValue, useAnimationFrame } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import img1 from "@/assets/banner/lovely.png";
@@ -8,72 +9,92 @@ import img2 from "@/assets/banner/gangs.png";
 import BriefCursor from "./BriefCursor";
 
 export default function BriefMarquee() {
-  const dispatchCursor = (active: boolean, text?: string) => {
-    const event = new CustomEvent("component-cursor-brief", {
-      detail: { active, text },
-    });
+  const x = useMotionValue(0);
 
-    window.dispatchEvent(event);
-  };
+  const speedRef = useRef(1);
+  const velocityRef = useRef(0);
 
   const items = [
-    {
-      text: "Chasing Consumers",
-      image: img1,
-    },
-    {
-      text: "Not Algorithms",
-      image: img2,
-    },
+    { text: "Chasing Consumers", image: img1 },
+    { text: "Not Algorithms", image: img2 },
   ];
 
-  // Duplicate ONLY once for seamless infinite loop
   const displayItems = [...items, ...items];
+
+  // 🚀 Scroll controls velocity
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      const delta = e.deltaY;
+
+      // scroll down → push forward
+      // scroll up → push backward (slight reverse)
+      velocityRef.current += delta * 0.02;
+
+      // clamp so it doesn’t go crazy
+      velocityRef.current = Math.max(-5, Math.min(5, velocityRef.current));
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: true });
+
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, []);
+
+  // 🧠 animation loop
+  useAnimationFrame(() => {
+    // decay velocity (return to normal)
+    velocityRef.current *= 0.92;
+
+    // base movement + scroll influence
+    const currentX = x.get();
+    x.set(currentX - (speedRef.current + velocityRef.current));
+
+    // reset loop
+    if (currentX <= -2000) x.set(0);
+  });
+
+  const dispatchCursor = (active: boolean, text?: string) => {
+    window.dispatchEvent(
+      new CustomEvent("component-cursor-brief", {
+        detail: { active, text },
+      }),
+    );
+  };
 
   return (
     <section className="w-full overflow-hidden py-10 lg:py-20 bg-[#efeeec] relative">
       <BriefCursor />
 
-      <motion.div>
-        <Link
-          href="/contact"
-          className="block cursor-none"
-          onMouseEnter={() => dispatchCursor(true, "Send Us Your Brief")}
-          onMouseLeave={() => dispatchCursor(false)}
+      <Link
+        href="/contact"
+        className="block cursor-none"
+        onMouseEnter={() => dispatchCursor(true, "Send Us Your Brief")}
+        onMouseLeave={() => dispatchCursor(false)}
+      >
+        <motion.div
+          className="flex items-center whitespace-nowrap gap-x-10 lg:gap-x-20 w-max"
+          style={{ x }}
         >
-          <motion.div
-            className="flex items-center whitespace-nowrap gap-x-10 lg:gap-x-20 w-max"
-            animate={{
-              x: ["0%", "-50%"],
-            }}
-            transition={{
-              duration: 30,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          >
-            {displayItems.map((item, idx) => (
-              <div
-                key={idx}
-                className="flex items-center gap-x-10 lg:gap-x-15 shrink-0"
-              >
-                <h2 className="text-7xl md:text-8xl lg:text-9xl xl:text-[11rem] font-semibold tracking-tight text-grey-900 leading-[0.9] shrink-0">
-                  {item.text}
-                </h2>
+          {displayItems.map((item, idx) => (
+            <div
+              key={idx}
+              className="flex items-center gap-x-10 lg:gap-x-15 shrink-0"
+            >
+              <h2 className="text-7xl md:text-8xl lg:text-9xl xl:text-[11rem] font-semibold tracking-tight text-grey-900 leading-[0.9] shrink-0">
+                {item.text}
+              </h2>
 
-                <div className="relative shrink-0 w-[25vw] md:w-[20vw] lg:w-[15vw] xl:w-[10vw] aspect-square overflow-hidden rounded-2xl lg:rounded-3xl">
-                  <Image
-                    src={item.image}
-                    alt={item.text}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative shrink-0 w-[25vw] md:w-[20vw] lg:w-[15vw] xl:w-[10vw] aspect-square overflow-hidden rounded-2xl lg:rounded-3xl">
+                <Image
+                  src={item.image}
+                  alt={item.text}
+                  fill
+                  className="object-cover"
+                />
               </div>
-            ))}
-          </motion.div>
-        </Link>
-      </motion.div>
+            </div>
+          ))}
+        </motion.div>
+      </Link>
     </section>
   );
 }
