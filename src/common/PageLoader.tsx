@@ -5,13 +5,30 @@ import { useEffect, useState } from "react";
 
 export default function PageLoader() {
   const [mounted, setMounted] = useState(false);
+  const [isPersisted, setIsPersisted] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setMounted(true);
     }, 0);
-    return () => clearTimeout(timer);
+
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        setIsPersisted(true);
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("pageshow", handlePageShow);
+    };
   }, []);
+
+  if (isPersisted) {
+    return null;
+  }
 
   if (!mounted) {
     return (
