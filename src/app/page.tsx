@@ -3,6 +3,7 @@ import FeaturedWork from "@/components/Featured/FeaturedWork";
 import Hero from "@/components/hero/Hero";
 import TopBar from "@/components/hero/TopBar";
 import OurServices from "@/components/OurServices/OurServices";
+import BriefMarquee from "@/components/BriefMarquee/BriefMarquee";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Agencies />
       <FeaturedWork />
       <OurServices />
+      <BriefMarquee />
     </>
   );
 }
