@@ -1,13 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useMotionValue,
-  MotionValue,
-} from "motion/react";
+import { motion, useScroll, useTransform, MotionValue } from "motion/react";
 
 const TEXT = "Ready To Rise At Seven?";
 const CHARS = TEXT.split("").map((ch, i) => ({ ch, i }));
@@ -86,7 +80,6 @@ export default function ReadyToRise() {
     return () => window.removeEventListener("resize", measure);
   }, []);
 
-  // Scroll progress while section passes through the viewport
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -111,7 +104,7 @@ export default function ReadyToRise() {
         className="absolute whitespace-nowrap will-change-transform"
       >
         <span
-          className="text-[16vw] font-medium tracking-tight leading-tight text-grey-900 select-none"
+          className="text-[16vw] font-medium tracking-tight leading-tight text-black select-none"
           aria-label={TEXT}
         >
           {CHARS.map(({ ch, i }) => (
