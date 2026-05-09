@@ -24,14 +24,12 @@ const LegacyCard = ({
   const start = index / totalCards;
   const end = (index + 1) / totalCards;
 
-  // All cards slide up as we scroll past their range
-  const y = useTransform(scrollYProgress, [start, end], ["0%", "-120%"]);
+  const y = useTransform(scrollYProgress, [start, end], ["0%", "-140%"]);
 
-  // All cards rotate as they slide out
   const rotate = useTransform(
     scrollYProgress,
     [start, end],
-    [card.rotate, card.rotate - 10],
+    [card.rotate, card.rotate - 60],
   );
 
   const zIndex = totalCards - index;
@@ -43,7 +41,7 @@ const LegacyCard = ({
         y,
         rotate,
       }}
-      className={`absolute w-full max-w-lg xl:max-w-xl 4xl:max-w-2xl aspect-square rounded-3xl p-7 lg:items-center lg:p-14 ${card.bg} shadow-2xl flex flex-col items-center justify-center text-center`}
+      className={`absolute w-full max-w-lg xl:max-w-xl 4xl:max-w-2xl aspect-square rounded-3xl p-7 lg:items-center lg:p-14 ${card.bg} shadow flex flex-col items-center justify-center text-center`}
     >
       <div className="flex flex-col items-center gap-y-3 md:gap-y-5">
         <div className="rounded-2xl overflow-hidden w-48 aspect-square relative 4xl:w-56 mb-4">
