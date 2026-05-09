@@ -15,7 +15,7 @@ interface DesktopSectionProps {
 const DesktopSection = ({ scrollYProgress }: DesktopSectionProps) => (
   <div className="w-full h-screen sticky top-0 left-0 overflow-hidden flex flex-col items-center">
     <div className="mt-10 3xl:mt-16">
-      <h2 className="text-gray-900 text-lg font-medium tracking-tight uppercase">
+      <h2 className="text-black text-lg md:text-xl font-semibold tracking-tight">
         Legacy In The Making
       </h2>
     </div>
