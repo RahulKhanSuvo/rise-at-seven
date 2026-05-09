@@ -19,7 +19,7 @@ export default function LegacySection() {
         <div
           ref={containerRef}
           className="w-full relative hidden lg:flex"
-          style={{ height: "400vh" }}
+          style={{ height: "350vh" }}
         >
           <DesktopSection scrollYProgress={scrollYProgress} />
         </div>

@@ -21,18 +21,20 @@ const LegacyCard = ({
   totalCards,
   scrollYProgress,
 }: LegacyCardProps) => {
-  const start = index / totalCards;
-  const end = (index + 1) / totalCards;
-
-  const y = useTransform(scrollYProgress, [start, end], ["0%", "-140%"]);
-
+  const rangeWidth = 2 / (totalCards + 1);
+  const start = index * (rangeWidth / 2);
+  const end = start + rangeWidth;
+  const cardExitProgress = useTransform(scrollYProgress, [start, end], [0, 1]);
+  const y = useTransform(cardExitProgress, [0, 0.2, 1], ["0%", "0%", "-150%"]);
   const rotate = useTransform(
-    scrollYProgress,
-    [start, end],
-    [card.rotate, card.rotate - 60],
+    cardExitProgress,
+    [0, 0.2, 1],
+    [card.rotate, card.rotate, card.rotate - 45],
   );
 
   const zIndex = totalCards - index;
+
+  const initialYOffset = index * 12;
 
   return (
     <motion.div
@@ -40,6 +42,7 @@ const LegacyCard = ({
         zIndex,
         y,
         rotate,
+        marginTop: initialYOffset,
       }}
       className={`absolute w-full max-w-lg xl:max-w-[32%]  aspect-square rounded-3xl p-7 lg:items-center lg:p-14 ${card.bg} shadow flex flex-col items-center justify-center text-center`}
     >
