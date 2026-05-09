@@ -20,7 +20,7 @@ export default function WhatsNewContent() {
           el: ".whats-new-pagination",
           type: "progressbar",
         }}
-        className="w-full js-carousel-64 pb-12!"
+        className="w-full pb-12!"
       >
         {whatNewData.map((item, idx) => (
           <SwiperSlide
