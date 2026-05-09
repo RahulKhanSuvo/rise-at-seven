@@ -9,7 +9,7 @@ export default function PageLoader() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setMounted(true);
-    }, 1);
+    }, 0);
     return () => clearTimeout(timer);
   }, []);
 
