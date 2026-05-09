@@ -12,11 +12,20 @@ export default function HeroBigText({
   return (
     <div className="flex w-screen justify-center flex-col items-center ">
       <div className="flex gap-2.5 overflow-hidden h-fit">
-        <TextSideAnimation text={text1} />
-        <TextSideAnimation text={text2} />
+        <TextSideAnimation
+          className="text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem]"
+          text={text1}
+        />
+        <TextSideAnimation
+          className="text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem]"
+          text={text2}
+        />
       </div>
       <div className="flex items-center gap-4 overflow-hidden h-fit pb-6">
-        <TextSideAnimation text={text3} />
+        <TextSideAnimation
+          className="text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem]"
+          text={text3}
+        />
         <motion.div
           initial={{ width: 0, opacity: 0 }}
           animate={{ width: 113, opacity: 1 }}
@@ -32,7 +41,10 @@ export default function HeroBigText({
             />
           </div>
         </motion.div>
-        <TextSideAnimation text="Leaders" />
+        <TextSideAnimation
+          className="text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem]"
+          text="Leaders"
+        />
       </div>
     </div>
   );
