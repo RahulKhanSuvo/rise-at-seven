@@ -34,44 +34,46 @@ export default function BriefMarquee() {
     <section className="w-full overflow-hidden py-10 lg:py-20 bg-[#efeeec] relative">
       <BriefCursor />
 
-      <Link
-        href="/contact"
-        className="block cursor-none"
-        onMouseEnter={() => dispatchCursor(true, "Send Us Your Brief")}
-        onMouseLeave={() => dispatchCursor(false)}
-      >
-        <motion.div
-          className="flex items-center whitespace-nowrap gap-x-10 lg:gap-x-20 w-max"
-          animate={{
-            x: ["0%", "-50%"],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "linear",
-          }}
+      <motion.div>
+        <Link
+          href="/contact"
+          className="block cursor-none"
+          onMouseEnter={() => dispatchCursor(true, "Send Us Your Brief")}
+          onMouseLeave={() => dispatchCursor(false)}
         >
-          {displayItems.map((item, idx) => (
-            <div
-              key={idx}
-              className="flex items-center gap-x-10 lg:gap-x-15 shrink-0"
-            >
-              <h2 className="text-7xl md:text-8xl lg:text-9xl xl:text-[11rem] font-semibold tracking-tight text-grey-900 leading-[0.9] shrink-0">
-                {item.text}
-              </h2>
+          <motion.div
+            className="flex items-center whitespace-nowrap gap-x-10 lg:gap-x-20 w-max"
+            animate={{
+              x: ["0%", "-50%"],
+            }}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            {displayItems.map((item, idx) => (
+              <div
+                key={idx}
+                className="flex items-center gap-x-10 lg:gap-x-15 shrink-0"
+              >
+                <h2 className="text-7xl md:text-8xl lg:text-9xl xl:text-[11rem] font-semibold tracking-tight text-grey-900 leading-[0.9] shrink-0">
+                  {item.text}
+                </h2>
 
-              <div className="relative shrink-0 w-[25vw] md:w-[20vw] lg:w-[15vw] xl:w-[10vw] aspect-square overflow-hidden rounded-2xl lg:rounded-3xl">
-                <Image
-                  src={item.image}
-                  alt={item.text}
-                  fill
-                  className="object-cover"
-                />
+                <div className="relative shrink-0 w-[25vw] md:w-[20vw] lg:w-[15vw] xl:w-[10vw] aspect-square overflow-hidden rounded-2xl lg:rounded-3xl">
+                  <Image
+                    src={item.image}
+                    alt={item.text}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
-        </motion.div>
-      </Link>
+            ))}
+          </motion.div>
+        </Link>
+      </motion.div>
     </section>
   );
 }
