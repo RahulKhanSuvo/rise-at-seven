@@ -72,7 +72,7 @@ export default function FeaturedWork() {
         </div>
       </section>
       <div className="text-center pt-10 pb-8">
-        <Button text="View All Projects" href="#" variant="solid" />
+        <Button text="Explore Our Work" href="#" variant="solid" />
       </div>
     </>
   );
