@@ -20,6 +20,7 @@ export default function Home() {
       <LegacySection />
       <WhatsNew />
       <ReadyToRise />
+      <div className="h-screen"></div>
     </>
   );
 }
