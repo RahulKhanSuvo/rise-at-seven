@@ -20,25 +20,20 @@ const images = [
 ];
 export default function Hero() {
   const [bg, setBg] = useState(images[0]);
-  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * images.length);
     const nextBg = images[randomIndex];
+
     const timeoutId = setTimeout(() => {
       setBg(nextBg);
-      setIsMounted(true);
     }, 0);
 
     return () => clearTimeout(timeoutId);
   }, []);
   return (
     <section className="w-full h-screen-fix h-svh relative p-2">
-      <div
-        className={`w-full h-full bg-red-100 relative rounded-3xl overflow-hidden transition-opacity duration-1000 ${
-          isMounted ? "opacity-100" : "opacity-0"
-        }`}
-      >
+      <div className="w-full h-full bg-red-100 relative rounded-3xl overflow-hidden">
         <Image
           src={bg}
           alt="Hero background"
