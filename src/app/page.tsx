@@ -6,6 +6,7 @@ import OurServices from "@/components/OurServices/OurServices";
 import BriefMarquee from "@/components/BriefMarquee/BriefMarquee";
 import LegacySection from "@/components/Legacy/LegacySection";
 import ReadyToRise from "@/components/ReadyToRise/ReadyToRise";
+import WhatsNew from "@/components/whatsNew/WhatsNew";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <OurServices />
       <BriefMarquee />
       <LegacySection />
+      <WhatsNew />
       <ReadyToRise />
     </>
   );
