@@ -2,6 +2,7 @@ import AnimatedLogo from "@/common/AnimatedLogo";
 import TextSideAnimation from "@/common/TextSideAnimation";
 import heroLogo from "@/assets/banner/IMG_5079.webp";
 import Button from "@/common/Button";
+import ServicesContent from "./ServicesContent";
 
 export default function OurServices() {
   return (
@@ -22,7 +23,9 @@ export default function OurServices() {
         <Button href="#" text="Visit All Services" />
       </div>
       {/* content */}
-      <div></div>
+      <div className="mt-10">
+        <ServicesContent />
+      </div>
     </section>
   );
 }
