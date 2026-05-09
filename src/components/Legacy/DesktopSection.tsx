@@ -9,9 +9,6 @@ interface DesktopSectionProps {
   scrollYProgress: MotionValue<number>;
 }
 
-/**
- * Desktop view for the Legacy section with scroll animation
- */
 const DesktopSection = ({ scrollYProgress }: DesktopSectionProps) => (
   <div className="w-full h-screen sticky top-0 left-0 overflow-hidden flex flex-col items-center">
     <div className="mt-10 3xl:mt-16">
