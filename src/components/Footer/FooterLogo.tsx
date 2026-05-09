@@ -1,10 +1,12 @@
+"use client";
+
 import React from "react";
 
 export default function FooterLogo() {
   return (
-    <div className="w-full mt-24 mb-6">
+    <div className="text-white">
       <svg
-        className="w-full h-auto object-contain fill-current text-white"
+        className="w-full h-full object-contain fill-current"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 168 21"
         fill="none"

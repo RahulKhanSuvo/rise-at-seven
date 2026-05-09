@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { useScroll } from "motion/react";
 import MobileSection from "./MobileSection";
 import DesktopSection from "./DesktopSection";
-
 export default function LegacySection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -13,7 +12,7 @@ export default function LegacySection() {
   });
 
   return (
-    <section className="w-full py-0">
+    <section id="legacy-section" className="w-full py-0">
       <div className="w-full px-0">
         <MobileSection />
         <div

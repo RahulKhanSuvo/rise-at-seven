@@ -10,6 +10,8 @@ import { useState, useEffect } from "react";
 import AchievementBadges from "./AchievementBadges";
 import HeroBigText from "./HeroBigText";
 import PlatformLogo from "./PlatformLogo";
+import Navbar from "./Navbar";
+
 const images = [
   heroImage1,
   heroImage2,
@@ -18,6 +20,7 @@ const images = [
   heroImage5,
   heroImage6,
 ];
+
 export default function Hero() {
   const [bg, setBg] = useState(images[0]);
 
@@ -31,6 +34,7 @@ export default function Hero() {
 
     return () => clearTimeout(timeoutId);
   }, []);
+
   return (
     <section className="w-full h-screen-fix h-svh relative p-2">
       <div className="w-full h-full bg-red-100 relative rounded-3xl overflow-hidden">
@@ -46,6 +50,10 @@ export default function Hero() {
         {/* OVERLAY */}
         <div className="absolute inset-0 bg-gray-900/30" />
 
+        {/* NAVBAR */}
+        <Navbar />
+
+        {/* Content */}
         <div className="relative z-10 flex flex-col gap-2 h-full items-center justify-center text-white">
           <p className="uppercase text-xs font-medium leading-tight tracking-tightish max-w-52 text-balance text-center mb-2 text-white">
             #1 Most recommended content marketing agency
