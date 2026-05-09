@@ -17,6 +17,8 @@
   --color-primary: var(--primary-color);
   --color-secondary: var(--secondary-color);
   --color-mint: #aaf6e4;
+  --color-grey-900: #111212;
+  --color-grey-400: #2a2a2a;
 }
 
 

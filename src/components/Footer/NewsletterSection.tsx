@@ -1,47 +1,80 @@
+"use client";
+
 import React from "react";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Youtube,
+  Instagram,
+} from "lucide-react";
 
 export default function NewsletterSection() {
   return (
-    <div className="flex flex-col gap-6 w-full max-w-sm">
-      <h3 className="text-[1.35rem] font-medium text-white tracking-tight">
+    <>
+      <h2 className="inline-flex flex-wrap text-balance relative text-left justify-start text-white text-2xl/none xl:text-3xl/none 4xl:text-4xl/none font-medium tracking-tight js-heading">
         Stay updated with Rise news
-      </h3>
-      <div className="relative flex items-center">
+      </h2>
+
+      <form className="w-full relative">
         <input
           type="email"
+          required
+          name="email"
+          className="appearance-none transition bg-grey-400 rounded-full w-full text-white font-medium tracking-tight leading-none text-lg px-5 py-4 lg:text-xl lg:px-6 lg:py-5 placeholder:text-white/50 focus:outline-none focus:ring-3 focus:ring-white/15"
           placeholder="Your Email Address"
-          className="w-full bg-[#2a2a2a] text-[#8e8e8e] placeholder-[#8e8e8e] rounded-full py-3.5 px-6 pr-14 focus:outline-none focus:ring-1 focus:ring-[#98f6d4] text-sm"
-          suppressHydrationWarning
         />
-        <button
-          className="absolute right-1.5 p-2 bg-[#98f6d4] rounded-full text-black hover:bg-white transition-colors"
-          aria-label="Subscribe"
-        >
-          <ArrowUpRight size={18} strokeWidth={2.5} />
-        </button>
-      </div>
 
-      <div className="flex items-center gap-2 mt-1">
-        <SocialLink href="#" label="f" />
-        <SocialLink href="#" label="x" />
-        <SocialLink href="#" label="in" />
-        <SocialLink href="#" label="y" />
-        <SocialLink href="#" label="t" />
-        <SocialLink href="#" label="ig" />
+        <div className="absolute top-0 right-0 p-2">
+          <button
+            type="submit"
+            className="size-9 bg-mint text-grey-900 text-md rounded-full flex items-center justify-center cursor-pointer transition lg:size-13 lg:text-lg hover:bg-white hover:rotate-90"
+          >
+            <ArrowUpRight size={20} />
+          </button>
+        </div>
+      </form>
+
+      <div className="flex gap-1">
+        <SocialLink
+          href="https://www.facebook.com/riseatseven"
+          icon={<Facebook size={12} />}
+        />
+        <SocialLink
+          href="https://x.com/riseatseven"
+          icon={<Twitter size={12} />}
+        />
+        <SocialLink
+          href="https://www.linkedin.com/company/riseatseven/"
+          icon={<Linkedin size={12} />}
+        />
+        <SocialLink
+          href="https://www.youtube.com/channel/UCAjOP9BgpZPTgae-QT9HGCw"
+          icon={<Youtube size={12} />}
+        />
+        <SocialLink
+          href="https://www.instagram.com/riseatseven/"
+          icon={<Instagram size={12} />}
+        />
       </div>
-    </div>
+    </>
   );
 }
 
-function SocialLink({ href, label }: { href: string; label: string }) {
+function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
   return (
     <a
       href={href}
-      className="flex items-center justify-between bg-white text-black rounded-full px-2 py-1 gap-1 hover:bg-[#98f6d4] transition-colors"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-x-2.5 rounded-xl text-xs px-2 py-1 transition-all hover:rounded-sm bg-white text-grey-900 group"
     >
-      <span className="text-[10px] font-bold leading-none">{label}</span>
-      <ArrowUpRight size={10} strokeWidth={3} />
+      <div className="inline-flex items-center">{icon}</div>
+      <ArrowUpRight
+        size={12}
+        className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+      />
     </a>
   );
 }
