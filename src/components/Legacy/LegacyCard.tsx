@@ -21,7 +21,7 @@ const LegacyCard = ({
   totalCards,
   scrollYProgress,
 }: LegacyCardProps) => {
-  const rangeWidth = 2.5 / (totalCards + 1);
+  const rangeWidth = 2.8 / (totalCards + 1);
   const start = index * (rangeWidth / 2);
   const end = start + rangeWidth;
   const cardExitProgress = useTransform(scrollYProgress, [start, end], [0, 1]);
