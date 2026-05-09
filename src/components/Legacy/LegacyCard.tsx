@@ -41,7 +41,7 @@ const LegacyCard = ({
         y,
         rotate,
       }}
-      className={`absolute w-full max-w-lg xl:max-w-xl 4xl:max-w-2xl aspect-square rounded-3xl p-7 lg:items-center lg:p-14 ${card.bg} shadow flex flex-col items-center justify-center text-center`}
+      className={`absolute w-full max-w-lg xl:max-w-[32%]  aspect-square rounded-3xl p-7 lg:items-center lg:p-14 ${card.bg} shadow flex flex-col items-center justify-center text-center`}
     >
       <div className="flex flex-col items-center gap-y-3 md:gap-y-5">
         <div className="rounded-2xl overflow-hidden w-48 aspect-square relative 4xl:w-56 mb-4">
@@ -60,12 +60,9 @@ const LegacyCard = ({
           >
             {card.title}
           </h3>
-          <div className="w-full max-w-md">
+          <div className="w-full h-full">
             {card.description.map((desc, i) => (
-              <p
-                key={i}
-                className={`text-base leading-normal mb-5 ${card.text} xl:text-lg`}
-              >
+              <p key={i} className={`text-sm leading-normal mb-5 ${card.text}`}>
                 {desc}
               </p>
             ))}
