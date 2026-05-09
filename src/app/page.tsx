@@ -4,6 +4,8 @@ import Hero from "@/components/hero/Hero";
 import TopBar from "@/components/hero/TopBar";
 import OurServices from "@/components/OurServices/OurServices";
 import BriefMarquee from "@/components/BriefMarquee/BriefMarquee";
+import LegacySection from "@/components/Legacy/LegacySection";
+import ReadyToRise from "@/components/ReadyToRise/ReadyToRise";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <FeaturedWork />
       <OurServices />
       <BriefMarquee />
+      <LegacySection />
+      <ReadyToRise />
     </>
   );
 }
