@@ -7,6 +7,7 @@ import BriefMarquee from "@/components/BriefMarquee/BriefMarquee";
 import LegacySection from "@/components/Legacy/LegacySection";
 import ReadyToRise from "@/components/ReadyToRise/ReadyToRise";
 import WhatsNew from "@/components/whatsNew/WhatsNew";
+import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
       <LegacySection />
       <WhatsNew />
       <ReadyToRise />
-      <div className="h-screen"></div>
+      <Footer />
     </>
   );
 }
