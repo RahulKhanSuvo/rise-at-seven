@@ -10,7 +10,7 @@ import { whatNewData } from "@/data/whatNewData";
 
 export default function WhatsNewContent() {
   return (
-    <div className="w-full mt-8 border">
+    <div className="w-full mt-8">
       <Swiper
         modules={[Pagination]}
         spaceBetween={20}
