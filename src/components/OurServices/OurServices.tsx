@@ -8,7 +8,7 @@ export default function OurServices() {
   return (
     <section className="py-10 px-4 md:px-7">
       {/* tile */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center border-b border-gray-300 pb-3">
         <div className="flex flex-wrap gap-2.5">
           <TextSideAnimation
             className="text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem]"

@@ -5,12 +5,12 @@ import Link from "next/link";
 
 export default function ServicesContent() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 ">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5  ">
       {servicesContentData.map((item) => (
         <div key={item.id} className="group relative w-full">
           {/* Bottom border separator */}
           <div className="absolute bottom-0 left-0 z-0 w-full md:px-12">
-            <div className="h-px w-full bg-gray-200"></div>
+            <div className="h-px w-full bg-gray-300"></div>
           </div>
 
           <Link href={item.href} className="relative z-10 grid grid-cols-1">
