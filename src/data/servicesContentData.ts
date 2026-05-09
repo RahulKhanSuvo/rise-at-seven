@@ -2,6 +2,8 @@ import digitalPr from "@/assets/services/boywithsignboard.png";
 import organicSocial from "@/assets/services/girlWith.png";
 import SearchAndGrowthStrategy from "@/assets/services/manWithposter.png";
 import ContentExperience from "@/assets/services/contentExperience.png";
+import dataAndInsights from "@/assets/services/dataAndInsights.png";
+import onSiteSeo from "@/assets/services/onSiteSeo.png";
 import { StaticImageData } from "next/image";
 export interface ServicesContentData {
   id: number;
@@ -37,13 +39,13 @@ export const servicesContentData: ServicesContentData[] = [
   {
     id: 5,
     title: "Data & Insights",
-    image: ContentExperience,
+    image: dataAndInsights,
     href: "#",
   },
   {
     id: 6,
-    title: "Brand & Creatives",
-    image: ContentExperience,
+    title: "Onsite SEO",
+    image: onSiteSeo,
     href: "#",
   },
 ];
