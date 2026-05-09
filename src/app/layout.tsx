@@ -4,7 +4,6 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Cursor from "@/components/Cursor";
 import PageLoader from "@/common/PageLoader";
-import ScrollToTop from "@/common/ScrollToTop";
 
 const hankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken-grotesk",
@@ -38,7 +37,6 @@ export default function RootLayout({
         <PageLoader />
         <Cursor />
         <SmoothScroll>{children}</SmoothScroll>
-        <ScrollToTop />
       </body>
     </html>
   );
