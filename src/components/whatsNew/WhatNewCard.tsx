@@ -74,7 +74,7 @@ export default function WhatNewCard({ item }: WhatNewCardProps) {
 
         {/* Reveal Layer (Circle Mask) - Blue overlay */}
         <motion.div
-          className="col-start-1 row-start-1 aspect-square relative rounded-2xl overflow-hidden lg:rounded-3xl z-30 pointer-events-none bg-blue-600/50 mix-blend-multiply"
+          className="col-start-1 row-start-1 aspect-square relative rounded-2xl overflow-hidden lg:rounded-3xl z-30 pointer-events-none backdrop-blur-sm"
           style={{
             clipPath,
           }}
