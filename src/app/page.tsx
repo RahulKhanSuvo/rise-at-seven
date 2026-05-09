@@ -15,14 +15,10 @@ export default function Home() {
       <TopBar />
       <Hero />
       <Agencies />
-      <div id="featured-work">
-        <FeaturedWork />
-      </div>
+      <FeaturedWork />
       <OurServices />
       <BriefMarquee />
-      <div id="legacy-section">
-        <LegacySection />
-      </div>
+      <LegacySection />
       <WhatsNew />
       <ReadyToRise />
       <Footer />

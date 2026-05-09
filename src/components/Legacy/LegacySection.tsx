@@ -13,7 +13,7 @@ export default function LegacySection() {
   });
 
   return (
-    <section className="w-full py-0">
+    <section id="legacy-section" className="w-full py-0">
       <div className="w-full px-0">
         <MobileSection />
         <div
