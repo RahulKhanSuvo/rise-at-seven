@@ -28,6 +28,7 @@ export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isAtTop, setIsAtTop] = useState(true);
+  const [isOverridden, setIsOverridden] = useState(false);
 
   const { scrollY } = useScroll();
 
@@ -49,11 +50,33 @@ export default function Navbar() {
     }
   });
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // We hide the navbar if any of the target sections are intersecting
+        const shouldHide = entries.some((entry) => entry.isIntersecting);
+        setIsOverridden(shouldHide);
+      },
+      {
+        threshold: 0.05, // Hide when even a small part of the section enters
+        rootMargin: "-10% 0px -10% 0px", // Slight margin to feel more natural
+      },
+    );
+
+    const targetIds = ["featured-work", "legacy-section"];
+    targetIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div
       className={cn(
         "fixed top-0 left-0 w-full z-50 p-4 transition-all duration-500",
-        isVisible ? "translate-y-0" : "-translate-y-full",
+        isVisible && !isOverridden ? "translate-y-0" : "-translate-y-full",
         isAtTop ? "absolute" : "fixed",
       )}
     >
