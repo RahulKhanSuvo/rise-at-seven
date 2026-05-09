@@ -25,7 +25,8 @@ export default function AnimatedLogo({
   return (
     <motion.div
       initial={{ width: 0, opacity: 0 }}
-      animate={{ width: size, opacity: 1 }}
+      whileInView={{ width: size, opacity: 1 }}
+      viewport={{ once: true, amount: 0.5 }}
       transition={{
         duration,
         ease: "easeInOut",

@@ -21,6 +21,8 @@ export default function OurServices() {
         </div>
         <Button href="#" text="Visit All Services" />
       </div>
+      {/* content */}
+      <div></div>
     </section>
   );
 }
