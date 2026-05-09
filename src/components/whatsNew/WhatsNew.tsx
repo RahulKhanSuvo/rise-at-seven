@@ -21,6 +21,8 @@ export default function WhatsNew() {
         </div>
         <Button href="#" text="Visit All Services" />
       </div>
+      {/* content */}
+      <div className=""></div>
     </section>
   );
 }
