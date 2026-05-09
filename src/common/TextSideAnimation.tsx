@@ -8,27 +8,52 @@ type TextSideAnimationProps = {
   className?: string;
 };
 
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+const item = {
+  hidden: {
+    y: 100,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
+
 export default function TextSideAnimation({
   text,
   className,
 }: TextSideAnimationProps) {
   return (
-    <div className={cn("inline-flex overflow-hidden", className)}>
+    <motion.div
+      variants={container}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.5 }}
+      className={cn("inline-flex overflow-hidden", className)}
+    >
       {text.split("").map((letter, index) => (
-        <motion.span
-          key={index}
-          className="font-semibold leading-none tracking-tight"
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{
-            duration: 0.5,
-            ease: "easeInOut",
-            delay: index * 0.05,
-          }}
-        >
-          {letter === " " ? "\u00A0" : letter}
-        </motion.span>
+        <div key={index} className="overflow-hidden">
+          <motion.span
+            variants={item}
+            transition={{
+              duration: 0.5,
+              ease: "easeInOut",
+            }}
+            className="inline-block font-semibold leading-none tracking-tight"
+          >
+            {letter === " " ? "\u00A0" : letter}
+          </motion.span>
+        </div>
       ))}
-    </div>
+    </motion.div>
   );
 }
