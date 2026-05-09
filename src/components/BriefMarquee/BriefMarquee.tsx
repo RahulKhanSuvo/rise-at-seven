@@ -28,7 +28,7 @@ export default function BriefMarquee() {
 
       // scroll down → push forward
       // scroll up → push backward (slight reverse)
-      velocityRef.current += delta * 0.02;
+      velocityRef.current += delta * 0.5;
 
       // clamp so it doesn’t go crazy
       velocityRef.current = Math.max(-5, Math.min(5, velocityRef.current));
