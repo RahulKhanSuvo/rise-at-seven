@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { useScroll } from "motion/react";
 import MobileSection from "./MobileSection";
 import DesktopSection from "./DesktopSection";
-import Reveal from "../Reveal";
 export default function LegacySection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
