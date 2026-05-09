@@ -1,13 +1,10 @@
 "use client";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useScroll } from "motion/react";
 import MobileSection from "./MobileSection";
 import DesktopSection from "./DesktopSection";
 
-/**
- * Main LegacySection component
- */
 export default function LegacySection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
