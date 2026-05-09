@@ -3,6 +3,8 @@ import { Hanken_Grotesk, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Cursor from "@/components/Cursor";
+import PageLoader from "@/common/PageLoader";
+import ScrollToTop from "@/common/ScrollToTop";
 
 const hankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken-grotesk",
@@ -29,9 +31,11 @@ export default function RootLayout({
       lang="en"
       className={`${hankenGrotesk.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col relative">
+        <PageLoader />
         <Cursor />
         <SmoothScroll>{children}</SmoothScroll>
+        <ScrollToTop />
       </body>
     </html>
   );
