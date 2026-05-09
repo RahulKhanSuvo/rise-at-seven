@@ -12,6 +12,7 @@ export default function NewsletterSection() {
           type="email"
           placeholder="Your Email Address"
           className="w-full bg-[#2a2a2a] text-[#8e8e8e] placeholder-[#8e8e8e] rounded-full py-3.5 px-6 pr-14 focus:outline-none focus:ring-1 focus:ring-[#98f6d4] text-sm"
+          suppressHydrationWarning
         />
         <button
           className="absolute right-1.5 p-2 bg-[#98f6d4] rounded-full text-black hover:bg-white transition-colors"
