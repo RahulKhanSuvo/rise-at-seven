@@ -33,7 +33,10 @@ export default function MobileMenu({
           : "pointer-events-none opacity-0",
       )}
     >
-      <div className="w-full h-full bg-grey-900/80 rounded-3xl px-4 py-2.5 flex flex-col items-start justify-between overflow-y-auto">
+      <div
+        className="w-full h-full bg-grey-900/80 rounded-3xl px-4 py-2.5 flex flex-col items-start justify-between overflow-y-auto"
+        data-lenis-prevent
+      >
         <div className="w-full grid gap-y-10">
           <div className="w-full flex flex-wrap items-center justify-between">
             {/* Logo in Mobile Menu */}

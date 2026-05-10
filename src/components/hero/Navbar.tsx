@@ -63,6 +63,20 @@ export default function Navbar() {
 
     return () => observer.disconnect();
   }, []);
+  useEffect(() => {
+    if (mobileMenu) {
+      document.body.style.overflow = "hidden";
+      window.dispatchEvent(new CustomEvent("lenis-stop"));
+    } else {
+      document.body.style.overflow = "unset";
+      window.dispatchEvent(new CustomEvent("lenis-start"));
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+      window.dispatchEvent(new CustomEvent("lenis-start"));
+    };
+  }, [mobileMenu]);
 
   return (
     <>
