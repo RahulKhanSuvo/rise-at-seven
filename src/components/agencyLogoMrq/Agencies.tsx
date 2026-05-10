@@ -38,6 +38,14 @@ export default function Agencies() {
               </div>
             </div>
           </div>
+          <p className="text-justify-start text-grey-900 md:mt-10 md:hidden font-semibold tracking-tight">
+            We&apos;re an award-winning full-service performance marketing and
+            digital innovation agency working across 8 global offices.
+            We&apos;re known for engineering category-defining search and
+            AI-first products for the world&apos;s most ambitious companies.
+          </p>
+
+          {/* Button Section */}
           <div className="flex flex-wrap gap-4 mt-4">
             <Button
               className="w-full md:w-auto"
