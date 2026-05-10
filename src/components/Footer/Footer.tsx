@@ -19,7 +19,6 @@ export default function Footer() {
     [0, 1],
     ["0%", "100%"],
   );
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
 
   return (
     <footer ref={containerRef} className="p-2 grid relative mt-8 lg:mt-0">
@@ -33,7 +32,13 @@ export default function Footer() {
 
       {/* Content */}
       <motion.div
-        style={{ opacity: contentOpacity }}
+        whileInView={{
+          opacity: [0, 1],
+        }}
+        transition={{
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
         className="col-start-1 row-start-1 grid grid-cols-12 pt-14 pb-6 relative z-20 lg:py-10 px-4 md:px-7 gap-x-3 md:gap-x-5 gap-y-3 md:gap-y-7 js-footer-content"
       >
         {/* Newsletter and Socials */}
