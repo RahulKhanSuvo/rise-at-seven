@@ -26,7 +26,7 @@ export default function AchievementBadges() {
           className="object-contain"
         />
       </div>
-      <div className="relative" style={{ width: "38px", height: "10px" }}>
+      <div className="relative" style={{ width: "38px", height: "20px" }}>
         <Image
           src={badge2}
           alt="achievement badges"
