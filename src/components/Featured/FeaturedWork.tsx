@@ -85,7 +85,7 @@ export default function FeaturedWork() {
               ))}
             </motion.div>
           </div>
-          <div className="lg:flex-1 w-full xl:w-3/7 h-full overflow-hidden items-center">
+          <div className=" w-full lg:w-3/7 h-full overflow-hidden items-center">
             <motion.div
               ref={projectsWrapperRef}
               className="pt-0 lg:py-8"
