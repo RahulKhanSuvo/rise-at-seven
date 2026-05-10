@@ -12,7 +12,7 @@ type AnimatedButtonProps = {
   className?: string;
 };
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 export default function Button({
   href,
@@ -26,10 +26,9 @@ export default function Button({
       initial="initial"
       whileHover="hovered"
       className={cn(
-        "group inline-flex items-center justify-center overflow-hidden rounded-3xl px-6 py-3 text-base font-medium transition-all duration-300 hover:rounded-xl",
+        "group inline-flex items-center justify-center overflow-hidden rounded-3xl px-6 py-3 text-base font-semibold transition-all duration-300 hover:rounded-xl",
         variant === "solid" && "border border-white bg-white text-black",
-        variant === "outline" &&
-          "border border-black bg-transparent text-black",
+        variant === "outline" && "bg-transparent text-black",
         className,
       )}
     >

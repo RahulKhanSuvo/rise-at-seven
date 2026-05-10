@@ -42,6 +42,7 @@ export default function Hero() {
           src={bg}
           alt="Hero background"
           fill
+          loading="eager"
           sizes="100vw"
           priority
           className="object-cover rounded-4xl scale-105"
@@ -55,12 +56,10 @@ export default function Hero() {
 
         {/* Content */}
         <div className="relative z-10 flex flex-col gap-2 h-full items-center justify-center text-white">
-          <p className="uppercase text-xs font-medium leading-tight tracking-tightish max-w-52 text-balance text-center mb-2 text-white">
+          <p className="uppercase text-sm font-semibold leading-tight tracking-[0.1px] max-w-52 text-balance text-center mb-2 text-white">
             #1 Most recommended content marketing agency
           </p>
-          <div>
-            <AchievementBadges />
-          </div>
+          <AchievementBadges />
           <HeroBigText heroLogo={bg} />
           <p className="text-white font-medium tracking-tight text-lg md:text-xl lg:text-3xl">
             on every searchable platform
@@ -69,8 +68,8 @@ export default function Hero() {
         </div>
       </div>
       <div className="absolute z-40 bottom-6 left-6 right-6 ">
-        <div className="flex gap-5 justify-between text-white">
-          <p className="text-wrap text-sm text-start">
+        <div className="flex gap-5 items-center justify-center md:justify-between text-white font-semibold">
+          <p className="text-wrap hidden md:block text-sm text-start">
             Organic media planners creating, distributing &amp; <br />{" "}
             optimizing search-first content for SEO, Social, PR, Ai and LLM
             search

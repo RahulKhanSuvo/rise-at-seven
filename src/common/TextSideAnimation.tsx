@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 type TextSideAnimationProps = {
   text: string;
   className?: string;
+  paddingBottom?: string;
 };
 
 const container = {
@@ -30,6 +31,7 @@ const item = {
 
 export default function TextSideAnimation({
   text,
+  paddingBottom,
   className,
 }: TextSideAnimationProps) {
   return (
@@ -48,7 +50,10 @@ export default function TextSideAnimation({
               duration: 0.5,
               ease: "easeInOut",
             }}
-            className="inline-block font-semibold leading-none tracking-tight"
+            className={cn(
+              "inline-block text-6xl md:text-7xl lg:text-8xl xl:text-[7.4rem] font-semibold leading-none tracking-tight",
+              paddingBottom,
+            )}
           >
             {letter === " " ? "\u00A0" : letter}
           </motion.span>

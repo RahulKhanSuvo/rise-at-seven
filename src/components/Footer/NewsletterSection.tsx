@@ -10,13 +10,14 @@ export default function NewsletterSection() {
         Stay updated with Rise news
       </h2>
 
-      <form className="w-full relative">
+      <form className="w-full relative" suppressHydrationWarning={true}>
         <input
           type="email"
           required
           name="email"
           className="appearance-none transition bg-grey-400 rounded-full w-full text-white font-medium tracking-tight leading-none text-lg px-5 py-4 lg:text-xl lg:px-6 lg:py-5 placeholder:text-white/50 focus:outline-none focus:ring-3 focus:ring-white/15"
           placeholder="Your Email Address"
+          suppressHydrationWarning={true}
         />
 
         <div className="absolute top-0 right-0 p-2">

@@ -12,10 +12,25 @@ import logo5 from "@/assets/agency/svg-image-6.svg";
 import logo6 from "@/assets/agency/svg-image-11.svg";
 
 import "swiper/css";
+import { useState, useCallback } from "react";
+import { useCustomResize } from "@/hook/useCustomResize";
 
 const LOGOS: StaticImageData[] = [logo1, logo2, logo3, logo4, logo5, logo6];
 
 export default function SwiperMarquee() {
+  const [spaceBetween, setSpaceBetween] = useState(40);
+
+  useCustomResize(
+    useCallback(() => {
+      const width = window.innerWidth;
+      if (width >= 1536) setSpaceBetween(140);
+      else if (width >= 1280) setSpaceBetween(120);
+      else if (width >= 1024) setSpaceBetween(90);
+      else if (width >= 768) setSpaceBetween(70);
+      else setSpaceBetween(40);
+    }, []),
+  );
+
   return (
     <div className="relative w-full  overflow-hidden select-none py-8">
       {/* Left and Right Gradient Blur Overlays */}
@@ -35,20 +50,25 @@ export default function SwiperMarquee() {
           pauseOnMouseEnter: false,
         }}
         allowTouchMove={true}
-        spaceBetween={120}
+        spaceBetween={spaceBetween}
         slidesPerView="auto"
         centeredSlides={false}
         watchSlidesProgress={true}
       >
         {Array.from({ length: 6 }, (_, round) =>
           LOGOS.map((logo, i) => (
-            <SwiperSlide key={`${round}-${i}`} style={{ width: "auto" }}>
-              <div className="flex items-center justify-start w-[160px] h-[30px]">
+            <SwiperSlide
+              key={`${round}-${i}`}
+              style={{ width: "auto" }}
+              className="relative"
+            >
+              <div className="flex items-center justify-start w-[100px] h-[30px] relative">
                 <Image
                   src={logo}
                   alt="agency logo"
                   fill
-                  className="w-full h-full object-contain"
+                  sizes="160px"
+                  className="object-contain"
                 />
               </div>
             </SwiperSlide>

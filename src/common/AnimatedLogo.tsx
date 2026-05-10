@@ -32,7 +32,7 @@ export default function AnimatedLogo({
         ease: "easeInOut",
         delay,
       }}
-      className={`relative overflow-hidden flex justify-center rounded-3xl ${className}`}
+      className={`relative overflow-hidden flex justify-center rounded-xl md:rounded-3xl ${className}`}
       style={{ height: size }}
     >
       <div className="relative shrink-0" style={{ width: size, height: size }}>
@@ -40,6 +40,7 @@ export default function AnimatedLogo({
           src={src}
           alt={alt}
           fill
+          sizes={`${size}px`}
           className={`object-cover ${imageClassName}`}
         />
       </div>

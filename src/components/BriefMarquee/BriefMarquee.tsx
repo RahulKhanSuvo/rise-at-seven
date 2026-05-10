@@ -68,7 +68,10 @@ export default function BriefMarquee() {
   };
 
   return (
-    <section className="w-full overflow-hidden py-10 lg:py-20 bg-[#efeeec] relative">
+    <section
+      className="w-full overflow-hidden md:py-10 lg:py-20 bg-[#efeeec]"
+      style={{ position: "relative" }}
+    >
       <BriefCursor />
 
       <Link
@@ -78,13 +81,13 @@ export default function BriefMarquee() {
         onMouseLeave={() => dispatchCursor(false)}
       >
         <motion.div
-          className="flex items-center whitespace-nowrap gap-x-10 lg:gap-x-20 w-max"
+          className="flex items-center whitespace-nowrap gap-x-8 lg:gap-x-20 w-max"
           style={{ x }}
         >
           {displayItems.map((item, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-x-10 lg:gap-x-15 shrink-0"
+              className="flex items-center gap-x-8 lg:gap-x-15 shrink-0"
             >
               <h2 className="text-7xl md:text-8xl lg:text-9xl xl:text-[11rem] font-semibold tracking-tight text-grey-900 leading-[0.9] shrink-0">
                 {item.text}
@@ -95,6 +98,7 @@ export default function BriefMarquee() {
                   src={item.image}
                   alt={item.text}
                   fill
+                  sizes="(max-width: 768px) 25vw, (max-width: 1024px) 20vw, (max-width: 1280px) 15vw, 10vw"
                   className="object-cover"
                 />
               </div>
