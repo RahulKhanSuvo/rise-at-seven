@@ -44,7 +44,7 @@ const LegacyCard = ({
         rotate,
         marginTop: initialYOffset,
       }}
-      className={`absolute w-full max-w-lg xl:max-w-[32%]  aspect-square rounded-3xl p-7 lg:items-center lg:p-14 ${card.bg} shadow flex flex-col items-center justify-center text-center`}
+      className={`absolute w-full max-w-lg xl:max-w-[32%]  aspect-square rounded-3xl p-7 lg:items-center lg:p-14 ${card.bg} flex flex-col items-center justify-center text-center`}
     >
       <div className="flex flex-col items-center gap-y-3 md:gap-y-5">
         <div className="rounded-2xl overflow-hidden w-48 aspect-square relative 4xl:w-56 mb-4">
