@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 type AnimatedButtonProps = {
   href: string;
   text: string;
+  icon?: boolean;
   variant?: "solid" | "outline";
   className?: string;
 };
@@ -17,6 +18,7 @@ const MotionLink = motion.create(Link);
 export default function Button({
   href,
   text,
+  icon = true,
   variant = "solid",
   className,
 }: AnimatedButtonProps) {
@@ -56,7 +58,7 @@ export default function Button({
           className="absolute left-0 top-0 flex items-center gap-2"
         >
           <span className="whitespace-nowrap">{text}</span>
-          <ArrowUpRight size={16} />
+          {icon ? <ArrowUpRight size={16} /> : null}
         </motion.div>
       </div>
     </MotionLink>
