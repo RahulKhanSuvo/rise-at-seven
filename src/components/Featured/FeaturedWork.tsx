@@ -15,7 +15,7 @@ export default function FeaturedWork() {
 
   const [hoveredProjectId, setHoveredProjectId] = useState<number | null>(null);
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0.5%", "-87.50%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0.5%", "-89.5%"]);
   const y2 = useTransform(scrollYProgress, [0, 1], ["25%", "-40%"]);
 
   return (
@@ -66,7 +66,7 @@ export default function FeaturedWork() {
               ))}
             </motion.div>
           </div>
-          <div className="xl:w-3/7 h-full items-center">
+          <div className="lg:flex-1 xl:w-3/7 h-full overflow-hidden items-center">
             <motion.div style={{ y }}>
               <Projects
                 hoveredProjectId={hoveredProjectId}
