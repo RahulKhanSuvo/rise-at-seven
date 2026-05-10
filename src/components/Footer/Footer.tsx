@@ -15,7 +15,7 @@ export default function Footer() {
   });
   const adjustedProgress = useTransform(
     scrollYProgress,
-    (value) => value - 0.01,
+    (value) => value - 0.0,
   );
   const backgroundHeight = useTransform(
     adjustedProgress,
