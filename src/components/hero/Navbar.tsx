@@ -82,9 +82,9 @@ export default function Navbar() {
     <>
       <div
         className={cn(
-          "fixed top-0 left-0 w-full z-50 lg:p-4 transition-all duration-500",
+          "fixed top-0 left-0 w-full z-50 transition-all px-2 duration-500",
           isVisible && !isOverridden ? "translate-y-0" : "-translate-y-full",
-          isAtTop ? "absolute" : "fixed",
+          isAtTop ? "absolute" : "fixed pt-2.5",
         )}
       >
         <nav
