@@ -20,6 +20,7 @@ export default function HeroBigText({
       </div>
       <div className="flex items-center gap-4 overflow-hidden h-fit pb-6">
         <TextSideAnimation
+          paddingBottom="pb-2"
           className="text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem]"
           text={"Category"}
         />
