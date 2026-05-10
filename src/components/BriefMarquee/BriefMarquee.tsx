@@ -54,7 +54,7 @@ export default function BriefMarquee() {
     // vel < 0 (scrolling up) -> moves right
     // --- ACCELERATION SENSITIVITY ---
     // Change 0.4 to make it more or less reactive to the scroll
-    moveBy += moveBy * vel * 0.4;
+    moveBy += moveBy * vel * 0.3;
 
     baseX.set(baseX.get() + moveBy);
   });
