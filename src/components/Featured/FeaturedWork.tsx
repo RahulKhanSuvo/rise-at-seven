@@ -15,8 +15,8 @@ export default function FeaturedWork() {
 
   const [hoveredProjectId, setHoveredProjectId] = useState<number | null>(null);
 
-  const y = useTransform(scrollYProgress, [0, 1], ["-0.50%", "-89%"]);
-  const y2 = useTransform(scrollYProgress, [0, 1], ["25%", "-50%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0.5%", "-87.50%"]);
+  const y2 = useTransform(scrollYProgress, [0, 1], ["25%", "-40%"]);
 
   return (
     <>
@@ -26,18 +26,18 @@ export default function FeaturedWork() {
         className="pt-16 h-[1000vh] px-4 md:px-7"
         style={{ position: "relative" }}
       >
-        <div className="px-4 md:px-10 flex h-[90vh] overflow-hidden justify-between items-center flex-wrap sticky top-10 bg-black text-white rounded-3xl">
-          <div className="flex flex-col relative">
+        <div className="px-4 md:px-10 flex h-[90vh]  justify-between sticky top-10 bg-grey-900 text-white rounded-3xl">
+          <div className="flex flex-col flex-1 relative">
             <div className="absolute inset-0 z-20 flex justify-between flex-col pointer-events-none">
-              <div>
-                <p className="text-lg md:text-2xl font-semibold bg-black w-full pt-16 pb-10">
+              <div className="">
+                <p className="text-lg md:text-2xl font-semibold bg-grey-900 w-full pt-20 pb-19">
                   Featured Work
                 </p>
-                <div className="w-full h-32 pointer-events-none bg-linear-to-b from-black to-transparent "></div>
+                <div className="w-full h-20 pointer-events-none bg-linear-to-b from-grey-900 to-transparent "></div>
               </div>
               <div>
-                <div className="w-full h-50 pointer-events-none bg-linear-to-b from-black/5 to-black "></div>
-                <div className="text-lg md:text-2xl font-semibold bg-black w-full h-60 "></div>
+                <div className="w-full h-45 pointer-events-none bg-linear-to-b from-grey-900/5 to-grey-900 "></div>
+                <div className="text-lg md:text-2xl font-semibold bg-grey-900 w-full h-20 "></div>
               </div>
             </div>
             <motion.div style={{ y: y2 }} className="flex flex-col gap-y-4">
