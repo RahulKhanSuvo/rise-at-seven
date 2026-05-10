@@ -31,7 +31,7 @@ export function NavLink({
         onMouseOver={onHover}
         onMouseLeave={onLeave}
         className={cn(
-          "group inline-flex items-center tracking-tight leading-tight py-1 font-semibold relative duration-300 px-4 transition-colors",
+          "group inline-flex items-center tracking-tight leading-tight py-1 font-semibold relative duration-300 text-lg px-4 transition-colors",
           !isDark && !isActive ? "text-white" : "text-black",
         )}
       >

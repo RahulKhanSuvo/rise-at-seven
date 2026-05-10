@@ -82,18 +82,18 @@ export default function Navbar() {
     <>
       <div
         className={cn(
-          "fixed top-0 left-0 w-full z-50 transition-all px-2 duration-500",
+          "fixed top-0 left-0 w-full z-50 transition-all px-3 duration-500",
           isVisible && !isOverridden ? "translate-y-0" : "-translate-y-full",
           isAtTop ? "absolute" : "fixed pt-2.5",
         )}
       >
         <nav
           className={cn(
-            "w-full flex items-center justify-between relative z-20 p-4 transition-all duration-500 lg:px-3 lg:rounded-full",
+            "w-full flex items-center justify-between relative z-20 p-4 transition-all duration-500 lg:px-2 lg:rounded-full",
             !hideHeaderBackground
               ? "bg-white/60 backdrop-blur-lg shadow-sm"
               : "bg-transparent",
-            !isAtTop ? "py-2 md:py-4" : "",
+            !isAtTop ? "py-2 md:py-2" : "",
           )}
         >
           {/* Logo */}
