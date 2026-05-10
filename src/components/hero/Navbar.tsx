@@ -82,9 +82,9 @@ export default function Navbar() {
     <>
       <div
         className={cn(
-          "fixed top-0 left-0 w-full z-50 transition-all px-3 duration-500",
+          "fixed top-0 left-0 w-full z-50 transition-all lg:px-3 duration-500",
           isVisible && !isOverridden ? "translate-y-0" : "-translate-y-full",
-          isAtTop ? "absolute" : "fixed pt-2.5",
+          isAtTop ? "absolute" : "fixed lg:pt-2.5",
         )}
       >
         <nav
@@ -93,7 +93,7 @@ export default function Navbar() {
             !hideHeaderBackground
               ? "bg-white/60 backdrop-blur-lg"
               : "bg-transparent",
-            !isAtTop ? "py-2 md:py-2.5" : "",
+            !isAtTop ? "py-4 md:py-2.5" : "",
           )}
         >
           {/* Logo */}
