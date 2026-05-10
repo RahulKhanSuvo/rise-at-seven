@@ -34,7 +34,6 @@ export default function FeaturedWork() {
     };
   }, []);
   const [hoveredProjectId, setHoveredProjectId] = useState<number | null>(null);
-  console.log(moveAmount, "moveAmount");
   const y = useTransform(scrollYProgress, [0, 1], ["30px", `-${moveAmount}px`]);
   const y2 = useTransform(scrollYProgress, [0, 1], ["25%", "-40%"]);
 
