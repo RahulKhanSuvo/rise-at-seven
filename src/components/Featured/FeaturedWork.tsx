@@ -18,16 +18,10 @@ export default function FeaturedWork() {
     const calculateMove = () => {
       if (!projectsWrapperRef.current) return;
 
-      // Total content height
       const contentHeight = projectsWrapperRef.current.scrollHeight;
-
-      // Visible parent height
       const visibleHeight =
         projectsWrapperRef.current.parentElement?.clientHeight || 0;
-
-      // How much should move
       const amount = contentHeight - visibleHeight;
-
       setMoveAmount(amount);
     };
 
