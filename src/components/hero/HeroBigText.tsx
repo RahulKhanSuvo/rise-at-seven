@@ -18,7 +18,7 @@ export default function HeroBigText({
           text={"Create"}
         />
       </div>
-      <div className="flex items-center gap-4 overflow-hidden h-fit pb-6">
+      <div className="flex flex-wrap items-center gap-2 md:gap-4 overflow-hidden h-fit pb-6">
         <TextSideAnimation
           paddingBottom="pb-2"
           className="text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem]"
@@ -29,9 +29,9 @@ export default function HeroBigText({
           viewport={{ once: true, amount: 0.5 }}
           initial={{ width: 0, opacity: 0 }}
           transition={{ duration: 1, ease: "easeInOut", delay: 0.6 }}
-          className="h-[113px] relative overflow-hidden flex justify-center rounded-3xl"
+          className="h-28 relative overflow-hidden flex justify-center rounded-3xl"
         >
-          <div className="w-[113px] h-[113px] relative shrink-0">
+          <div className=" size-28 relative shrink-0">
             <Image
               src={heroLogo}
               alt="background"
