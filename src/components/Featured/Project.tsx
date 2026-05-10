@@ -18,7 +18,7 @@ export default function Project({
   setHovered,
   resetHover,
 }: ProjectProps) {
-  const { title, image, type, description, color } = project;
+  const { title, image, type, description, color, timeline } = project;
   const [isInternalHovered, setIsInternalHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -75,7 +75,13 @@ export default function Project({
           <ChartLine className="size-4 opacity-70" />
         </div>
       </div>
-
+      {/* title for tablet and mobile */}
+      <div className="absolute bottom-0 left-0 w-full p-3 z-30 lg:hidden">
+        <span className="font-medium text-xs ">{`[${timeline}]`}</span>
+        <h2 className="text-3xl font-semibold tracking-tight leading-[1.1] text-balance">
+          {title}
+        </h2>
+      </div>
       {/* Reveal Layer (Circle Mask) */}
       <motion.div
         className="col-start-1 row-start-1 flex flex-col items-start justify-between z-40 p-4 lg:p-6 pointer-events-none"

@@ -34,7 +34,7 @@ export default function FeaturedWork() {
     };
   }, []);
   const [hoveredProjectId, setHoveredProjectId] = useState<number | null>(null);
-  const y = useTransform(scrollYProgress, [0, 1], ["30px", `-${moveAmount}px`]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0px", `-${moveAmount}px`]);
   const y2 = useTransform(scrollYProgress, [0, 1], ["25%", "-40%"]);
 
   return (
@@ -85,8 +85,15 @@ export default function FeaturedWork() {
               ))}
             </motion.div>
           </div>
-          <div className="lg:flex-1 xl:w-3/7 h-full overflow-hidden items-center">
-            <motion.div ref={projectsWrapperRef} style={{ y }}>
+          <div className="lg:flex-1 w-full xl:w-3/7 h-full overflow-hidden items-center">
+            <motion.div
+              ref={projectsWrapperRef}
+              className="pt-0 lg:py-8"
+              style={{ y }}
+            >
+              <p className="text-lg md:text-2xl py-3.5 lg:hidden font-semibold bg-grey-900 w-full">
+                Featured Work
+              </p>
               <Projects
                 hoveredProjectId={hoveredProjectId}
                 setHoveredProjectId={setHoveredProjectId}
