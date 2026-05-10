@@ -42,6 +42,7 @@ export default function Hero() {
           src={bg}
           alt="Hero background"
           fill
+          loading="eager"
           sizes="100vw"
           priority
           className="object-cover rounded-4xl scale-105"
