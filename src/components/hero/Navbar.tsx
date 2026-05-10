@@ -205,7 +205,7 @@ function NavLink({
         onMouseOver={onHover}
         onMouseLeave={onLeave}
         className={cn(
-          "group inline-flex items-center tracking-tight leading-tight py-2 font-medium relative duration-300 px-4 transition-colors",
+          "group inline-flex items-center tracking-tight leading-tight py-1 font-semibold relative duration-300 px-4 transition-colors",
           !isDark && !isActive ? "text-white" : "text-black",
         )}
       >
@@ -230,7 +230,7 @@ function GetInTouchButton({ isDark }: { isDark: boolean }) {
     <Link
       href="https://riseatseven.com/connect-with-us/"
       className={cn(
-        "group inline-flex shrink-0 justify-center gap-x-2 items-center relative leading-tight tracking-tight capitalize font-medium overflow-hidden border border-transparent cursor-pointer text-base px-6 py-1.5 rounded-3xl transition-all duration-300 hover:rounded-xl",
+        "group inline-flex shrink-0 justify-center gap-x-2 items-center relative leading-tight tracking-tight capitalize font-medium overflow-hidden border border-transparent cursor-pointer text-base px-6 py-3 rounded-3xl transition-all duration-300 hover:rounded-xl",
         !isDark ? "bg-white text-grey-900" : "bg-grey-900 text-white",
       )}
     >
