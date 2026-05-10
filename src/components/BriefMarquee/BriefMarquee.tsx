@@ -23,7 +23,9 @@ export default function BriefMarquee() {
     damping: 50,
     stiffness: 400,
   });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 15], {
+  // --- ACCELERATION CONFIG ---
+  // Change the second array [0, 22] to increase/decrease the maximum acceleration factor
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 22], {
     clamp: false,
   });
 
@@ -35,24 +37,24 @@ export default function BriefMarquee() {
   // More items to ensure no gaps at high speeds
   const displayItems = [...items, ...items, ...items, ...items];
 
-  /**
-   * Helper for wrapping values to create infinite loop
-   */
   const wrap = (min: number, max: number, v: number) => {
     const rangeSize = max - min;
     return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
   };
 
   useAnimationFrame((t, delta) => {
-    // Base speed: moves left by default
-    let moveBy = -0.02 * (delta / 16); // Normalized base speed (very slow)
+    // --- NORMAL SPEED CONFIG ---
+    // Change -0.02 to make the idle speed faster or slower
+    let moveBy = -0.01 * (delta / 16); // Normalized base speed (very slow)
 
     const vel = velocityFactor.get();
 
     // Add scroll velocity to the base movement
     // vel > 0 (scrolling down) -> more negative (faster left)
     // vel < 0 (scrolling up) -> moves right
-    moveBy += moveBy * vel * 0.1;
+    // --- ACCELERATION SENSITIVITY ---
+    // Change 0.4 to make it more or less reactive to the scroll
+    moveBy += moveBy * vel * 0.4;
 
     baseX.set(baseX.get() + moveBy);
   });
