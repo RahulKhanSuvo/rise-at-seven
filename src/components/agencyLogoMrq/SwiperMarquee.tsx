@@ -13,7 +13,7 @@ import logo6 from "@/assets/agency/svg-image-11.svg";
 
 import "swiper/css";
 import { useState, useCallback } from "react";
-import { useCustomResize } from "@/common/useCustomResize";
+import { useCustomResize } from "@/hook/useCustomResize";
 
 const LOGOS: StaticImageData[] = [logo1, logo2, logo3, logo4, logo5, logo6];
 

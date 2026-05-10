@@ -3,7 +3,7 @@ import Image, { StaticImageData } from "next/image";
 import TextSideAnimation from "../../common/TextSideAnimation";
 import { motion } from "motion/react";
 import { useState, useCallback } from "react";
-import { useCustomResize } from "@/common/useCustomResize";
+import { useCustomResize } from "@/hook/useCustomResize";
 
 export default function HeroBigText({
   heroLogo,
