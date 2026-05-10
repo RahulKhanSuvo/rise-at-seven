@@ -4,7 +4,12 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useScroll, useMotionValueEvent } from "motion/react";
+import {
+  useScroll,
+  useMotionValueEvent,
+  motion,
+  AnimatePresence,
+} from "motion/react";
 
 const navLinks = [
   { label: "Services", href: "/services/", id: 102, hasPlus: true },
@@ -102,14 +107,21 @@ export default function Navbar() {
           />
 
           {navLinks.map((link) => (
-            <NavLink
-              key={link.id}
-              {...link}
-              isDark={!hideHeaderBackground}
-              isActive={megaMenu === link.id}
-              onHover={() => setMegaMenu(link.id)}
-              onLeave={() => setMegaMenu(false)}
-            />
+            <div className="relative" key={link.id}>
+              <NavLink
+                {...link}
+                isDark={!hideHeaderBackground}
+                isActive={megaMenu === link.id}
+                onHover={() => setMegaMenu(link.id)}
+                onLeave={() => setMegaMenu(false)}
+              />
+              {megaMenu === link.id && (
+                <motion.div
+                  layoutId="nav-link"
+                  className="absolute top-0 left-0 w-full h-full bg-white rounded-full pointer-events-none"
+                />
+              )}
+            </div>
           ))}
         </div>
 
