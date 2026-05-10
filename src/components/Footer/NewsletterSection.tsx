@@ -10,7 +10,7 @@ export default function NewsletterSection() {
         Stay updated with Rise news
       </h2>
 
-      <form className="w-full relative">
+      <form className="w-full relative" suppressHydrationWarning={true}>
         <input
           type="email"
           required

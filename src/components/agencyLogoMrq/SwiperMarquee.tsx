@@ -42,7 +42,11 @@ export default function SwiperMarquee() {
       >
         {Array.from({ length: 6 }, (_, round) =>
           LOGOS.map((logo, i) => (
-            <SwiperSlide key={`${round}-${i}`} style={{ width: "auto" }}>
+            <SwiperSlide
+              key={`${round}-${i}`}
+              style={{ width: "auto" }}
+              className="relative"
+            >
               <div className="flex items-center justify-start w-[160px] h-[30px] relative">
                 <Image
                   src={logo}
