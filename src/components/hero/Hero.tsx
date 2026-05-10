@@ -67,8 +67,8 @@ export default function Hero() {
         </div>
       </div>
       <div className="absolute z-40 bottom-6 left-6 right-6 ">
-        <div className="flex gap-5 justify-between text-white">
-          <p className="text-wrap text-sm text-start">
+        <div className="flex gap-5 items-center justify-center md:justify-between text-white font-semibold">
+          <p className="text-wrap hidden md:block text-sm text-start">
             Organic media planners creating, distributing &amp; <br />{" "}
             optimizing search-first content for SEO, Social, PR, Ai and LLM
             search
