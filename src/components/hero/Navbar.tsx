@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   useScroll,
@@ -12,18 +12,75 @@ import {
 } from "motion/react";
 
 const navLinks = [
-  { label: "Services", href: "/services/", id: 102, hasPlus: true },
+  {
+    label: "Services",
+    href: "/services/",
+    id: 102,
+    hasPlus: true,
+    subLinks: [
+      { label: "Search & Growth Strategy", href: "/services/strategy-growth/" },
+      { label: "Onsite SEO", href: "/services/onsite-seo/" },
+      { label: "Content Experience", href: "/services/content-experience/" },
+      { label: "B2B Marketing", href: "/services/b2b-marketing/" },
+      { label: "Digital PR", href: "/services/digital-pr/" },
+      { label: "Social Media & Campaigns", href: "/services/social/" },
+      { label: "Data & Insights", href: "/services/data-insights/" },
+      {
+        label: "Social SEO/Search",
+        href: "/services/social-seo-tiktok-youtube/",
+      },
+    ],
+  },
   {
     label: "Industries",
     href: "/services/b2b-marketing/",
     id: 23929,
     hasPlus: true,
+    subLinks: [{ label: "B2B Marketing", href: "/services/b2b-marketing/" }],
   },
-  { label: "International", href: "/international/", id: 103, hasPlus: true },
-  { label: "About", href: "/about/", id: 16913, hasPlus: true },
+  {
+    label: "International",
+    href: "/international/",
+    id: 103,
+    hasPlus: true,
+    subLinks: [
+      { label: "US Digital PR", href: "/international/us-digital-pr/" },
+      {
+        label: "Spain Digital PR",
+        href: "/international/us-digital-pr/spain-digital-pr/",
+      },
+      { label: "Germany Digital PR", href: "/germany-digital-pr/" },
+      { label: "Netherlands Digital PR", href: "/netherlands-digital-pr/" },
+    ],
+  },
+  {
+    label: "About",
+    href: "/about/",
+    id: 16913,
+    hasPlus: true,
+    subLinks: [
+      { label: "About Us", href: "/about/" },
+      { label: "Meet The Risers", href: "/meet-the-team/" },
+      { label: "Culture", href: "/culture/" },
+      { label: "Testimonials", href: "/testimonials/" },
+    ],
+  },
   { label: "Work", href: "/work/", id: 104, hasBadge: 25 },
   { label: "Careers", href: "/careers/", id: 105 },
-  { label: "Blog & Resources", href: "/blog/", id: 106, hasPlus: true },
+  {
+    label: "Blog & Resources",
+    href: "/blog/",
+    id: 106,
+    hasPlus: true,
+    subLinks: [
+      { label: "Blog", href: "/blog/" },
+      { label: "Category Leaderboard", href: "/category-leaderboard/" },
+      {
+        label: "Multi-Channel Search Report",
+        href: "/multi-channel-search-report-2026-/",
+      },
+    ],
+  },
   { label: "Webinar", href: "/webinars/", id: 107 },
 ];
 
@@ -58,13 +115,12 @@ export default function Navbar() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        // We hide the navbar if any of the target sections are intersecting
         const shouldHide = entries.some((entry) => entry.isIntersecting);
         setIsOverridden(shouldHide);
       },
       {
-        threshold: 0.05, // Hide when even a small part of the section enters
-        rootMargin: "-10% 0px -10% 0px", // Slight margin to feel more natural
+        threshold: 0.05,
+        rootMargin: "-10% 0px -10% 0px",
       },
     );
 
@@ -76,6 +132,14 @@ export default function Navbar() {
 
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (mobileMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [mobileMenu]);
 
   return (
     <div
@@ -138,17 +202,154 @@ export default function Navbar() {
           />
         </div>
       </nav>
+
+      {/* Mobile Menu Modal */}
+      <MobileMenu
+        isOpen={mobileMenu}
+        onClose={() => setMobileMenu(false)}
+        links={navLinks}
+      />
     </div>
   );
 }
 
-function Logo({ isDark }: { isDark: boolean }) {
+function MobileMenu({
+  isOpen,
+  onClose,
+  links,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+  links: typeof navLinks;
+}) {
+  const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
+
+  const toggleAccordion = (id: number) => {
+    setActiveAccordion(activeAccordion === id ? null : id);
+  };
+
+  return (
+    <div
+      className={cn(
+        "w-full h-svh fixed top-0 left-0 z-50 transition p-2 backdrop-blur-sm duration-1000 lg:hidden",
+        isOpen
+          ? "pointer-events-auto opacity-100"
+          : "pointer-events-none opacity-0",
+      )}
+    >
+      <div className="w-full h-full bg-grey-900/80 rounded-3xl px-4 py-2.5 flex flex-col items-start justify-between overflow-y-auto">
+        <div className="w-full grid gap-y-10">
+          <div className="w-full flex flex-wrap items-center justify-between">
+            {/* Logo in Mobile Menu */}
+            <Logo
+              isDark={false}
+              onClick={onClose}
+              className="w-32 inline-flex md:w-40"
+            />
+
+            <div className="-mr-2">
+              <MobileMenuButton
+                isOpen={isOpen}
+                isDark={false}
+                onClick={onClose}
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col items-start gap-y-1">
+            {links.map((link) => (
+              <div key={link.id} className="w-full">
+                <div className="flex items-center justify-between">
+                  <Link
+                    href={link.href}
+                    onClick={onClose}
+                    className="text-white text-4xl tracking-tight font-medium leading-none md:text-5xl"
+                  >
+                    {link.label}
+                  </Link>
+
+                  {link.subLinks && (
+                    <button
+                      className={cn(
+                        "w-6 h-6 rounded-full flex items-center justify-center text-white text-xs border border-white border-solid transition",
+                        activeAccordion === link.id ? "rotate-180" : "rotate-0",
+                      )}
+                      onClick={() => toggleAccordion(link.id)}
+                    >
+                      <ChevronDown size={14} />
+                    </button>
+                  )}
+                </div>
+
+                {link.subLinks && (
+                  <AnimatePresence>
+                    {activeAccordion === link.id && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="w-full overflow-hidden"
+                      >
+                        <div className="grid gap-y-1 py-4">
+                          {link.subLinks.map((subLink, idx) => (
+                            <Link
+                              key={idx}
+                              href={subLink.href}
+                              onClick={onClose}
+                              className="group inline-flex tracking-tight leading-tight font-medium relative text-white text-xl"
+                            >
+                              {subLink.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <Link
+          href="https://riseatseven.com/connect-with-us/"
+          onClick={onClose}
+          className="w-full group inline-flex shrink-0 justify-center gap-x-2 items-center relative leading-tight tracking-tightish capitalize font-sans-primary! font-medium overflow-hidden border border-transparent cursor-pointer text-base px-6 py-3 rounded-3xl transition-all duration-300 pointer-fine:hover:rounded-xl bg-white text-grey-900 flex-row-reverse"
+        >
+          <div className="relative overflow-hidden h-5">
+            <div className="transition-transform duration-300 group-hover:-translate-y-6 flex items-center gap-x-2">
+              <span>Get in touch</span>
+              <ArrowUpRight size={14} />
+            </div>
+            <div className="transition-transform duration-300 absolute top-0 left-0 translate-y-6 group-hover:translate-y-0 flex items-center gap-x-2">
+              <span>Get in touch</span>
+              <ArrowUpRight size={14} />
+            </div>
+          </div>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function Logo({
+  isDark,
+  className,
+  onClick,
+}: {
+  isDark: boolean;
+  className?: string;
+  onClick?: () => void;
+}) {
   return (
     <Link
       href="/"
+      onClick={onClick}
       className={cn(
         "flex w-32 ml-2 md:w-40 transition-colors duration-300",
         isDark ? "text-black" : "text-white",
+        className,
       )}
     >
       <div className="text-current">
