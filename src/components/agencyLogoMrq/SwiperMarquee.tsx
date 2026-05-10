@@ -12,36 +12,24 @@ import logo5 from "@/assets/agency/svg-image-6.svg";
 import logo6 from "@/assets/agency/svg-image-11.svg";
 
 import "swiper/css";
-import { useEffect, useState } from "react";
+import { useState, useCallback } from "react";
+import { useCustomResize } from "@/common/useCustomResize";
 
 const LOGOS: StaticImageData[] = [logo1, logo2, logo3, logo4, logo5, logo6];
 
 export default function SwiperMarquee() {
-  const [spaceBetween, setSpaceBetween] = useState(120);
+  const [spaceBetween, setSpaceBetween] = useState(40);
 
-  useEffect(() => {
-    const handleResize = () => {
+  useCustomResize(
+    useCallback(() => {
       const width = window.innerWidth;
-
-      if (width >= 1536) {
-        setSpaceBetween(140);
-      } else if (width >= 1280) {
-        setSpaceBetween(120);
-      } else if (width >= 1024) {
-        setSpaceBetween(90);
-      } else if (width >= 768) {
-        setSpaceBetween(70);
-      } else {
-        setSpaceBetween(40);
-      }
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+      if (width >= 1536) setSpaceBetween(140);
+      else if (width >= 1280) setSpaceBetween(120);
+      else if (width >= 1024) setSpaceBetween(90);
+      else if (width >= 768) setSpaceBetween(70);
+      else setSpaceBetween(40);
+    }, []),
+  );
 
   return (
     <div className="relative w-full  overflow-hidden select-none py-8">

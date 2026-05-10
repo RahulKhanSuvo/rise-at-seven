@@ -2,22 +2,21 @@
 import Image, { StaticImageData } from "next/image";
 import TextSideAnimation from "../../common/TextSideAnimation";
 import { motion } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
+import { useCustomResize } from "@/common/useCustomResize";
 
 export default function HeroBigText({
   heroLogo,
 }: {
   heroLogo: StaticImageData;
 }) {
-  // md breakpoint = 768px; size-11 = 44px, size-28 = 112px
   const [targetWidth, setTargetWidth] = useState(44);
 
-  useEffect(() => {
-    const update = () => setTargetWidth(window.innerWidth >= 768 ? 112 : 44);
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
+  useCustomResize(
+    useCallback(() => {
+      setTargetWidth(window.innerWidth >= 768 ? 112 : 44);
+    }, []),
+  );
 
   return (
     <div className="flex w-screen justify-center flex-col items-center">
@@ -42,7 +41,7 @@ export default function HeroBigText({
           viewport={{ once: true, amount: 0.5 }}
           initial={{ width: 0, opacity: 0 }}
           transition={{ duration: 1, ease: "easeInOut", delay: 0.6 }}
-          className="h-11 md:h-28 relative overflow-hidden flex justify-center rounded-3xl"
+          className="h-11 md:h-28 relative overflow-hidden flex justify-center rounded-xl md:rounded-3xl"
         >
           <div className="size-11 md:size-28 relative shrink-0">
             <Image
