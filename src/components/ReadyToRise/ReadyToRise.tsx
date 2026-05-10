@@ -97,7 +97,7 @@ export default function ReadyToRise() {
   return (
     <section
       ref={sectionRef}
-      className="w-full h-screen overflow-hidden bg-[#efeeec] relative"
+      className="w-full  hidden lg:block h-screen overflow-hidden bg-[#efeeec] relative"
     >
       <motion.div
         ref={headingRef}

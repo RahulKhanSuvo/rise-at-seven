@@ -39,8 +39,12 @@ export default function WhatsNew() {
         <WhatsNewContent />
       </div>
 
-      <div className="mt-8 flex justify-center md:hidden w-full">
-        <Button href="#" text="Explore More Thoughts" />
+      <div className="mt-4   flex justify-center md:hidden w-full">
+        <Button
+          className="w-full lg:w-auto"
+          href="#"
+          text="Explore More Thoughts"
+        />
       </div>
     </section>
   );
