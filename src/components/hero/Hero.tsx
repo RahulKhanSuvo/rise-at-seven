@@ -58,9 +58,7 @@ export default function Hero() {
           <p className="uppercase text-sm font-semibold leading-tight tracking-[0.1px] max-w-52 text-balance text-center mb-2 text-white">
             #1 Most recommended content marketing agency
           </p>
-          <div>
-            <AchievementBadges />
-          </div>
+          <AchievementBadges />
           <HeroBigText heroLogo={bg} />
           <p className="text-white font-medium tracking-tight text-lg md:text-xl lg:text-3xl">
             on every searchable platform
