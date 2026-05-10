@@ -29,7 +29,7 @@ export default function OurServices() {
             text="Services"
           />
         </div>
-        <Button href="#" text="Visit All Services" />
+        <Button className="hidden lg:flex" href="#" text="Visit All Services" />
       </div>
       {/* content */}
       <div className="mt-10">
