@@ -34,7 +34,7 @@ const MobileSection = () => (
         {legacyCards.map((card) => (
           <SwiperSlide key={card.id} className="h-auto! flex">
             <div
-              className={`w-full flex flex-col text-center rounded-2xl p-7 lg:rounded-3xl ${card.bg}`}
+              className={`w-full flex flex-col h-full text-center rounded-2xl p-7 lg:rounded-3xl ${card.bg}`}
             >
               <div className="flex flex-col items-center gap-y-3 md:gap-y-5">
                 <div className="rounded-xl overflow-hidden w-full aspect-4/3 relative lg:aspect-square lg:w-48 4xl:w-56">
