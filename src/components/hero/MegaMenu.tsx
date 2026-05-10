@@ -22,10 +22,16 @@ interface NavLink {
 interface MegaMenuProps {
   activeId: number | boolean;
   onClose: () => void;
+  onMouseEnter: () => void;
   links: NavLink[];
 }
 
-export default function MegaMenu({ activeId, onClose, links }: MegaMenuProps) {
+export default function MegaMenu({
+  activeId,
+  onClose,
+  onMouseEnter,
+  links,
+}: MegaMenuProps) {
   const activeLink = links.find((l) => l.id === activeId);
   const [hoveredSubLink, setHoveredSubLink] = useState<number | null>(0);
 
@@ -35,6 +41,7 @@ export default function MegaMenu({ activeId, onClose, links }: MegaMenuProps) {
     <div
       className="fixed inset-0 z-40 pointer-events-none hidden lg:block"
       onMouseLeave={onClose}
+      onMouseEnter={onMouseEnter}
     >
       {/* Backdrop */}
       <motion.div
@@ -51,9 +58,9 @@ export default function MegaMenu({ activeId, onClose, links }: MegaMenuProps) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        className="absolute top-24 left-1/2 -translate-x-1/2 w-full max-w-5xl px-4 pointer-events-auto"
+        className="absolute top-24 left-1/2 -translate-x-1/2 w-auto min-w-[600px] px-4 pointer-events-auto"
       >
-        <div className="bg-white rounded-4xl shadow-2xl overflow-hidden flex min-h-[400px]">
+        <div className="bg-white rounded-[2rem] shadow-2xl overflow-hidden flex min-h-[400px] w-fit">
           {/* Links Section */}
           <div className="flex-1 p-12 flex flex-col justify-between">
             <div className="grid grid-cols-2 gap-12">

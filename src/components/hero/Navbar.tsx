@@ -23,6 +23,9 @@ export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [isAtTop, setIsAtTop] = useState(true);
   const [isOverridden, setIsOverridden] = useState(false);
+  const [megaMenuTimeout, setMegaMenuTimeout] = useState<NodeJS.Timeout | null>(
+    null,
+  );
 
   const { scrollY } = useScroll();
 
@@ -113,14 +116,20 @@ export default function Navbar() {
               <div
                 className="relative"
                 key={link.id}
-                onMouseEnter={() => setMegaMenu(link.id)}
-                onMouseLeave={() => setMegaMenu(false)}
+                onMouseEnter={() => {
+                  if (megaMenuTimeout) clearTimeout(megaMenuTimeout);
+                  setMegaMenu(link.id);
+                }}
+                onMouseLeave={() => {
+                  const timeout = setTimeout(() => setMegaMenu(false), 100);
+                  setMegaMenuTimeout(timeout);
+                }}
               >
                 <NavLink
                   {...link}
                   isDark={!hideHeaderBackground || megaMenu !== false}
                   isActive={megaMenu === link.id}
-                  onHover={() => setMegaMenu(link.id)}
+                  onHover={() => {}} // Handled by parent div
                   onLeave={() => {}} // Handled by parent div
                 />
                 {megaMenu === link.id && (
@@ -161,6 +170,9 @@ export default function Navbar() {
           <MegaMenu
             activeId={megaMenu}
             onClose={() => setMegaMenu(false)}
+            onMouseEnter={() => {
+              if (megaMenuTimeout) clearTimeout(megaMenuTimeout);
+            }}
             links={navLinks}
           />
         )}
