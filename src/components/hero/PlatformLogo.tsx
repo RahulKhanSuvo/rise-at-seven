@@ -17,7 +17,13 @@ export default function PlatformLogo() {
           key={index}
           className="h-[30px] w-[67px] flex items-center justify-center relative overflow-hidden"
         >
-          <Image src={logo} alt="logo" fill className="object-contain" />
+          <Image
+            src={logo}
+            alt="logo"
+            fill
+            sizes="67px"
+            className="object-contain"
+          />
         </div>
       ))}
     </div>

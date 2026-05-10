@@ -56,7 +56,7 @@ export default function Project({
       className="relative grid group w-full aspect-4/3 overflow-hidden mb-8 rounded-2xl cursor-none"
     >
       {/* Base Image Layer */}
-      <div className="col-start-1 row-start-1 transition-transform duration-700 group-hover:scale-105">
+      <div className="col-start-1 row-start-1 relative transition-transform duration-700 group-hover:scale-105">
         <Image
           src={image}
           alt={title}

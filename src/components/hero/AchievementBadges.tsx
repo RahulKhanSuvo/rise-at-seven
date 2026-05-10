@@ -28,6 +28,7 @@ export default function AchievementBadges() {
         className="h-fit"
         width={38}
         height={10}
+        style={{ width: "auto" }}
       />
       <Image
         src={badge4}

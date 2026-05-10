@@ -32,6 +32,7 @@ export default function Agencies() {
                   src={banner}
                   alt=""
                   fill
+                  sizes="80px"
                   className="object-cover rounded-xl"
                 />
               </div>

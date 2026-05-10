@@ -38,6 +38,7 @@ export default function HeroBigText({
               src={heroLogo}
               alt="background"
               fill
+              sizes="113px"
               className="object-cover "
             />
           </div>

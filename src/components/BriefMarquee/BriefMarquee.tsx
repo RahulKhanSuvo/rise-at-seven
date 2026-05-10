@@ -95,6 +95,7 @@ export default function BriefMarquee() {
                   src={item.image}
                   alt={item.text}
                   fill
+                  sizes="(max-width: 768px) 25vw, (max-width: 1024px) 20vw, (max-width: 1280px) 15vw, 10vw"
                   className="object-cover"
                 />
               </div>

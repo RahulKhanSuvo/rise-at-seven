@@ -22,6 +22,7 @@ export default function ServicesContent() {
                   src={item.image}
                   alt={item.title}
                   fill
+                  sizes="(max-width: 768px) 48px, 64px"
                   className="object-cover"
                 />
               </div>
@@ -46,11 +47,12 @@ export default function ServicesContent() {
 
             {/* Background Image Reveal (Desktop Hover) */}
             <div className="relative z-10 col-start-1 row-start-1 overflow-hidden rounded-full bg-black opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-              <div className="h-full w-full opacity-60 transition-transform duration-500 group-hover:scale-[1.05]">
+              <div className="relative h-full w-full opacity-60 transition-transform duration-500 group-hover:scale-[1.05]">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>

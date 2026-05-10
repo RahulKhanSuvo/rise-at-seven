@@ -40,6 +40,7 @@ export default function AnimatedLogo({
           src={src}
           alt={alt}
           fill
+          sizes={`${size}px`}
           className={`object-cover ${imageClassName}`}
         />
       </div>
