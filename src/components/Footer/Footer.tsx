@@ -23,7 +23,7 @@ export default function Footer() {
   return (
     <footer ref={containerRef} className="p-2 grid relative mt-8 lg:mt-0">
       {/* Background reveal */}
-      <div className="absolute top-0 left-0 w-full p-2 flex  pointer-events-none h-full">
+      <div className="absolute inset-0 w-full p-2 flex  pointer-events-none h-full">
         <motion.div
           style={{ height: backgroundHeight }}
           className="w-full bg-grey-900 rounded-3xl"
@@ -39,7 +39,7 @@ export default function Footer() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="col-start-1 row-start-1 grid grid-cols-12 pt-14 pb-6 relative z-20 lg:py-10 px-4 md:px-7 gap-x-3 md:gap-x-5 gap-y-3 md:gap-y-7 js-footer-content"
+        className="col-start-1 row-start-1 grid grid-cols-12 pt-14 pb-6  z-20 lg:py-10 px-4 md:px-7 gap-x-3 md:gap-x-5 gap-y-3 md:gap-y-7 js-footer-content"
       >
         {/* Newsletter and Socials */}
         <div className="flex flex-col items-start justify-start col-span-12 mb-10 lg:mb-0 lg:col-span-4 gap-y-3 md:gap-y-5">

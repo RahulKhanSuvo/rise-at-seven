@@ -91,7 +91,7 @@ export default function Navbar() {
           className={cn(
             "w-full flex items-center justify-between relative z-20 p-4 transition-all duration-500 lg:px-3 lg:rounded-full",
             !hideHeaderBackground
-              ? "bg-white/60 backdrop-blur-lg shadow-sm"
+              ? "bg-white/60 backdrop-blur-lg"
               : "bg-transparent",
             !isAtTop ? "py-2 md:py-2.5" : "",
           )}
