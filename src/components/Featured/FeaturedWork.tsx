@@ -27,7 +27,7 @@ export default function FeaturedWork() {
         style={{ position: "relative" }}
       >
         <div className="px-4 md:px-10 flex h-[90vh] overflow-hidden justify-between sticky top-10 bg-grey-900 text-white rounded-3xl">
-          <div className="flex flex-col flex-1 relative">
+          <div className=" hidden lg:flex flex-col flex-1 relative">
             <div className="absolute inset-0 z-20 flex justify-between flex-col pointer-events-none">
               <div className="">
                 <p className="text-lg md:text-2xl font-semibold bg-grey-900 w-full pt-20 pb-19">
