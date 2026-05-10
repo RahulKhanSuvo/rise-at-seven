@@ -39,6 +39,11 @@ export default function OurServices() {
       {/* content */}
       <div className="mt-10">
         <ServicesContent />
+        <Button
+          className="lg:hidden flex justify-center mt-10"
+          href="#"
+          text="Visit All Services"
+        />
       </div>
     </section>
   );
