@@ -55,7 +55,7 @@ export default function Hero() {
 
         {/* Content */}
         <div className="relative z-10 flex flex-col gap-2 h-full items-center justify-center text-white">
-          <p className="uppercase text-xs font-medium leading-tight tracking-tightish max-w-52 text-balance text-center mb-2 text-white">
+          <p className="uppercase text-sm font-semibold leading-tight tracking-[0.1px] max-w-52 text-balance text-center mb-2 text-white">
             #1 Most recommended content marketing agency
           </p>
           <div>

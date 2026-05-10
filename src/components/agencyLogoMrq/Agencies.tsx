@@ -5,7 +5,7 @@ import Button from "@/common/Button";
 
 export default function Agencies() {
   return (
-    <section className="pt-16" style={{ position: "relative" }}>
+    <section className="pt-10 md:pt-16" style={{ position: "relative" }}>
       <div className="w-full flex flex-col md:flex-row  md:items-center px-4 md:px-6 ">
         <p className="  text-nowrap w-40 text-sm font-medium">
           The agency behind...
@@ -20,7 +20,7 @@ export default function Agencies() {
           </p>
         </div>
 
-        <div className="flex flex-col ">
+        <div className="flex flex-col">
           <div className="flex-wrap relative w-full md:max-w-2xl  text-left gap-2.5 text-justify-start inline-flex  text-grey-900 text-5xl  lg:text-6xl xl:text-[5rem] 3xl:text-7.5xl 3xl font-sans-primary font-semibold tracking-tight">
             <div className="inline mr-2 pointer-fine:mr-0">Driving</div>
             <div className="inline mr-2 pointer-fine:mr-0">Demand</div>
