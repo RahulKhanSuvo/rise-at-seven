@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
 
 interface NavLinkProps {
   label: string;
