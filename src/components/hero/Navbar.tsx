@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { useScroll, useMotionValueEvent, motion } from "motion/react";
+import { useScroll, useMotionValueEvent } from "motion/react";
 
 // Modular Imports
 import { navLinks } from "@/constants/navigation";
@@ -13,6 +13,7 @@ import {
   GetInTouchButton,
   MobileMenuButton,
 } from "./NavbarComponents";
+import { motion } from "motion/react";
 
 export default function Navbar() {
   const [hideHeaderBackground, setHideHeaderBackground] = useState(true);
@@ -63,82 +64,76 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (mobileMenu) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-  }, [mobileMenu]);
-
   return (
-    <div
-      className={cn(
-        "fixed top-0 left-0 w-full z-50 lg:p-4 transition-all duration-500",
-        isVisible && !isOverridden ? "translate-y-0" : "-translate-y-full",
-        isAtTop ? "absolute" : "fixed",
-      )}
-    >
-      <nav
+    <>
+      <div
         className={cn(
-          "w-full flex items-center justify-between relative z-20 p-4 transition-all duration-500 lg:px-3 lg:rounded-full",
-          !hideHeaderBackground
-            ? "bg-white/60 backdrop-blur-lg shadow-sm"
-            : "bg-transparent",
-          !isAtTop ? "py-2 md:py-4" : "",
+          "fixed top-0 left-0 w-full z-50 lg:p-4 transition-all duration-500",
+          isVisible && !isOverridden ? "translate-y-0" : "-translate-y-full",
+          isAtTop ? "absolute" : "fixed",
         )}
       >
-        {/* Logo */}
-        <Logo isDark={!hideHeaderBackground} />
+        <nav
+          className={cn(
+            "w-full flex items-center justify-between relative z-20 p-4 transition-all duration-500 lg:px-3 lg:rounded-full",
+            !hideHeaderBackground
+              ? "bg-white/60 backdrop-blur-lg shadow-sm"
+              : "bg-transparent",
+            !isAtTop ? "py-2 md:py-4" : "",
+          )}
+        >
+          {/* Logo */}
+          <Logo isDark={!hideHeaderBackground} />
 
-        {/* Desktop Links */}
-        <div className="relative ml-10 group/links hidden lg:inline-flex items-center">
-          <div
-            className={cn(
-              "bg-white/50 backdrop-blur-md z-0 h-full rounded-full absolute pointer-events-none transition-all duration-300",
-              megaMenu !== false ? "opacity-100" : "opacity-0",
-            )}
-          />
-
-          {navLinks.map((link) => (
-            <div className="relative" key={link.id}>
-              <NavLink
-                {...link}
-                isDark={!hideHeaderBackground}
-                isActive={megaMenu === link.id}
-                onHover={() => setMegaMenu(link.id)}
-                onLeave={() => setMegaMenu(false)}
-              />
-              {megaMenu === link.id && (
-                <motion.div
-                  layoutId="nav-link"
-                  className="absolute inset-0 w-full h-full bg-white rounded-full pointer-events-none"
-                />
+          {/* Desktop Links */}
+          <div className="relative ml-10 group/links hidden lg:inline-flex items-center">
+            <div
+              className={cn(
+                "bg-white/50 backdrop-blur-md z-0 h-full rounded-full absolute pointer-events-none transition-all duration-300",
+                megaMenu !== false ? "opacity-100" : "opacity-0",
               )}
-            </div>
-          ))}
-        </div>
+            />
 
-        {/* Right Side: Button & Mobile Menu */}
-        <div className="flex items-center gap-4">
-          <div className="hidden lg:inline-flex">
-            <GetInTouchButton isDark={!hideHeaderBackground} />
+            {navLinks.map((link) => (
+              <div className="relative" key={link.id}>
+                <NavLink
+                  {...link}
+                  isDark={!hideHeaderBackground}
+                  isActive={megaMenu === link.id}
+                  onHover={() => setMegaMenu(link.id)}
+                  onLeave={() => setMegaMenu(false)}
+                />
+                {megaMenu === link.id && (
+                  <motion.div
+                    layoutId="nav-link"
+                    className="absolute inset-0 w-full h-full bg-white rounded-full pointer-events-none"
+                  />
+                )}
+              </div>
+            ))}
           </div>
 
-          <MobileMenuButton
-            isOpen={mobileMenu}
-            isDark={!hideHeaderBackground}
-            onClick={() => setMobileMenu(!mobileMenu)}
-          />
-        </div>
-      </nav>
+          {/* Right Side: Button & Mobile Menu */}
+          <div className="flex items-center gap-4">
+            <div className="hidden lg:inline-flex">
+              <GetInTouchButton isDark={!hideHeaderBackground} />
+            </div>
 
-      {/* Mobile Menu Modal */}
+            <MobileMenuButton
+              isOpen={mobileMenu}
+              isDark={!hideHeaderBackground}
+              onClick={() => setMobileMenu(!mobileMenu)}
+            />
+          </div>
+        </nav>
+      </div>
+
+      {/* Mobile Menu Modal (Teleported to body) */}
       <MobileMenu
         isOpen={mobileMenu}
         onClose={() => setMobileMenu(false)}
         links={navLinks}
       />
-    </div>
+    </>
   );
 }
