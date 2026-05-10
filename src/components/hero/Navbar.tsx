@@ -89,11 +89,11 @@ export default function Navbar() {
       >
         <nav
           className={cn(
-            "w-full flex items-center justify-between relative z-20 p-4 transition-all duration-500 lg:px-2 lg:rounded-full",
+            "w-full flex items-center justify-between relative z-20 p-4 transition-all duration-500 lg:px-3 lg:rounded-full",
             !hideHeaderBackground
               ? "bg-white/60 backdrop-blur-lg shadow-sm"
               : "bg-transparent",
-            !isAtTop ? "py-2 md:py-2" : "",
+            !isAtTop ? "py-2 md:py-2.5" : "",
           )}
         >
           {/* Logo */}
