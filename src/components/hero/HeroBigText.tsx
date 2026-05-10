@@ -10,40 +10,30 @@ export default function HeroBigText({
 }: {
   heroLogo: StaticImageData;
 }) {
-  const [targetWidth, setTargetWidth] = useState(44);
+  const [targetWidth, setTargetWidth] = useState(50);
 
   useCustomResize(
     useCallback(() => {
-      setTargetWidth(window.innerWidth >= 768 ? 112 : 44);
+      setTargetWidth(window.innerWidth >= 768 ? 112 : 50);
     }, []),
   );
 
   return (
     <div className="flex w-screen justify-center flex-col items-center">
-      <div className="flex gap-2.5 flex-wrap justify-center overflow-hidden h-fit">
-        <TextSideAnimation
-          className="text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem]"
-          text={"We"}
-        />
-        <TextSideAnimation
-          className="text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem]"
-          text={"Create"}
-        />
+      <div className="flex gap-0 md:gap-2.5 flex-wrap justify-center overflow-hidden h-fit">
+        <TextSideAnimation text={"We"} />
+        <TextSideAnimation text={"Create"} />
       </div>
-      <div className="flex flex-wrap justify-center gap-1 md:gap-4 overflow-hidden h-fit pb-4 md:pb-6">
-        <TextSideAnimation
-          paddingBottom="pb-1 md:pb-2"
-          className="text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem]"
-          text={"Category"}
-        />
+      <div className="flex flex-wrap justify-center gap-1 md:gap-4 overflow-hidden h-fit pb-1 md:pb-6">
+        <TextSideAnimation paddingBottom="pb-1 md:pb-2" text={"Category"} />
         <motion.div
           whileInView={{ width: targetWidth, opacity: 1 }}
           viewport={{ once: true, amount: 0.5 }}
           initial={{ width: 0, opacity: 0 }}
           transition={{ duration: 1, ease: "easeInOut", delay: 0.6 }}
-          className="h-11 md:h-28 relative overflow-hidden flex justify-center rounded-xl md:rounded-3xl"
+          className="h-14 md:h-28 relative overflow-hidden flex justify-center rounded-xl md:rounded-3xl"
         >
-          <div className="size-11 md:size-28 relative shrink-0">
+          <div className="size-14 md:size-28 relative shrink-0">
             <Image
               src={heroLogo}
               alt="background"
@@ -53,10 +43,7 @@ export default function HeroBigText({
             />
           </div>
         </motion.div>
-        <TextSideAnimation
-          className="text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem]"
-          text="Leaders"
-        />
+        <TextSideAnimation text="Leaders" />
       </div>
     </div>
   );

@@ -51,7 +51,7 @@ export default function TextSideAnimation({
               ease: "easeInOut",
             }}
             className={cn(
-              "inline-block font-semibold leading-none tracking-tight",
+              "inline-block text-6xl md:text-7xl lg:text-8xl xl:text-[7.4rem] font-semibold leading-none tracking-tight",
               paddingBottom,
             )}
           >
