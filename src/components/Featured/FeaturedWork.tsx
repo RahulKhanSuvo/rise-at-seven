@@ -1,10 +1,11 @@
 "use client";
 import { motion, useScroll, useTransform } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Projects from "./Projects";
 import { projectsData } from "@/data/projectData";
 import Button from "@/common/Button";
+import { useCustomResize } from "@/hook/useCustomResize";
 
 export default function FeaturedWork() {
   const containerRef = useRef(null);
@@ -14,25 +15,16 @@ export default function FeaturedWork() {
     target: containerRef,
     offset: ["start start", "end end"],
   });
-  useEffect(() => {
-    const calculateMove = () => {
+  useCustomResize(
+    useCallback(() => {
       if (!projectsWrapperRef.current) return;
-
-      const contentHeight = projectsWrapperRef.current.scrollHeight;
+      const contentHeight = projectsWrapperRef.current?.scrollHeight || 0;
       const visibleHeight =
-        projectsWrapperRef.current.parentElement?.clientHeight || 0;
+        projectsWrapperRef.current?.parentElement?.clientHeight || 0;
       const amount = contentHeight - visibleHeight;
       setMoveAmount(amount);
-    };
-
-    calculateMove();
-
-    window.addEventListener("resize", calculateMove);
-
-    return () => {
-      window.removeEventListener("resize", calculateMove);
-    };
-  }, []);
+    }, []),
+  );
   const [hoveredProjectId, setHoveredProjectId] = useState<number | null>(null);
   const y = useTransform(scrollYProgress, [0, 1], ["0px", `-${moveAmount}px`]);
   const y2 = useTransform(scrollYProgress, [0, 1], ["25%", "-40%"]);
