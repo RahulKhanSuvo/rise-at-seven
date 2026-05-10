@@ -1,6 +1,6 @@
 "use client";
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Projects from "./Projects";
 import { projectsData } from "@/data/projectData";
@@ -8,14 +8,40 @@ import Button from "@/common/Button";
 
 export default function FeaturedWork() {
   const containerRef = useRef(null);
+  const projectsWrapperRef = useRef<HTMLDivElement>(null);
+  const [moveAmount, setMoveAmount] = useState(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
+  useEffect(() => {
+    const calculateMove = () => {
+      if (!projectsWrapperRef.current) return;
 
+      // Total content height
+      const contentHeight = projectsWrapperRef.current.scrollHeight;
+
+      // Visible parent height
+      const visibleHeight =
+        projectsWrapperRef.current.parentElement?.clientHeight || 0;
+
+      // How much should move
+      const amount = contentHeight - visibleHeight;
+
+      setMoveAmount(amount);
+    };
+
+    calculateMove();
+
+    window.addEventListener("resize", calculateMove);
+
+    return () => {
+      window.removeEventListener("resize", calculateMove);
+    };
+  }, []);
   const [hoveredProjectId, setHoveredProjectId] = useState<number | null>(null);
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0.5%", "-89.5%"]);
+  console.log(moveAmount, "moveAmount");
+  const y = useTransform(scrollYProgress, [0, 1], ["30px", `-${moveAmount}px`]);
   const y2 = useTransform(scrollYProgress, [0, 1], ["25%", "-40%"]);
 
   return (
@@ -67,7 +93,7 @@ export default function FeaturedWork() {
             </motion.div>
           </div>
           <div className="lg:flex-1 xl:w-3/7 h-full overflow-hidden items-center">
-            <motion.div style={{ y }}>
+            <motion.div ref={projectsWrapperRef} style={{ y }}>
               <Projects
                 hoveredProjectId={hoveredProjectId}
                 setHoveredProjectId={setHoveredProjectId}
