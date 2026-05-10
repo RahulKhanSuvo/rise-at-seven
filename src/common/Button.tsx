@@ -45,7 +45,7 @@ export default function Button({
           className="flex items-center gap-2"
         >
           <span className="whitespace-nowrap">{text}</span>
-          <ArrowUpRight size={16} />
+          {icon ? <ArrowUpRight size={16} /> : null}
         </motion.div>
 
         {/* Second Text */}
