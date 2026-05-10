@@ -19,13 +19,10 @@ export default function Footer() {
     [0, 1],
     ["0%", "100%"],
   );
-  const contentOpacity = useTransform(scrollYProgress, [0.3, 1], [0, 1]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
 
   return (
-    <footer
-      ref={containerRef}
-      className="p-2 grid relative mt-8 lg:mt-0 js-footer"
-    >
+    <footer ref={containerRef} className="p-2 grid relative mt-8 lg:mt-0">
       {/* Background reveal */}
       <div className="absolute top-0 left-0 w-full p-2 flex  pointer-events-none h-full">
         <motion.div
