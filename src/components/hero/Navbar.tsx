@@ -8,12 +8,13 @@ import { useScroll, useMotionValueEvent } from "motion/react";
 import { navLinks } from "@/constants/navigation";
 import Logo from "./Logo";
 import MobileMenu from "./MobileMenu";
+import MegaMenu from "./MegaMenu";
 import {
   NavLink,
   GetInTouchButton,
   MobileMenuButton,
 } from "./NavbarComponents";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function Navbar() {
   const [hideHeaderBackground, setHideHeaderBackground] = useState(true);
@@ -109,13 +110,18 @@ export default function Navbar() {
             />
 
             {navLinks.map((link) => (
-              <div className="relative" key={link.id}>
+              <div
+                className="relative"
+                key={link.id}
+                onMouseEnter={() => setMegaMenu(link.id)}
+                onMouseLeave={() => setMegaMenu(false)}
+              >
                 <NavLink
                   {...link}
-                  isDark={!hideHeaderBackground}
+                  isDark={!hideHeaderBackground || megaMenu !== false}
                   isActive={megaMenu === link.id}
                   onHover={() => setMegaMenu(link.id)}
-                  onLeave={() => setMegaMenu(false)}
+                  onLeave={() => {}} // Handled by parent div
                 />
                 {megaMenu === link.id && (
                   <motion.div
@@ -148,6 +154,17 @@ export default function Navbar() {
         onClose={() => setMobileMenu(false)}
         links={navLinks}
       />
+
+      {/* Desktop Mega Menu */}
+      <AnimatePresence>
+        {megaMenu !== false && (
+          <MegaMenu
+            activeId={megaMenu}
+            onClose={() => setMegaMenu(false)}
+            links={navLinks}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }
