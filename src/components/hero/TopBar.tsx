@@ -7,6 +7,7 @@ export default function TopBar() {
         text="🚨 The Category Leaderboard - Live Now"
         href="#"
         variant="solid"
+        icon={false}
         className="bg-primary w-full py-1 border-none"
       />
     </div>

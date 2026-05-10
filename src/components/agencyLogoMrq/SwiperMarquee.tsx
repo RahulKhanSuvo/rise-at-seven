@@ -1,8 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import type SwiperClass from "swiper";
 import Image, { StaticImageData } from "next/image";
+import {
+  useScroll,
+  useVelocity,
+  useSpring,
+  useTransform,
+  useAnimationFrame,
+} from "motion/react";
 
 import logo1 from "@/assets/agency/01J76SW385WN4X1CBJWJV7QSAP.webp";
 import logo2 from "@/assets/agency/SN.webp";
@@ -19,6 +27,44 @@ const LOGOS: StaticImageData[] = [logo1, logo2, logo3, logo4, logo5, logo6];
 
 export default function SwiperMarquee() {
   const [spaceBetween, setSpaceBetween] = useState(40);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(
+    null,
+  );
+
+  const { scrollY } = useScroll();
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 50,
+    stiffness: 400,
+  });
+  // --- ACCELERATION CONFIG ---
+  // Change the second array [0, 22] to increase/decrease the maximum acceleration factor
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 22], {
+    clamp: false,
+  });
+
+  useAnimationFrame((t, delta) => {
+    if (!swiperInstance) return;
+
+    // --- NORMAL SPEED CONFIG ---
+    // Change -0.4 to make the idle speed faster or slower (pixels per frame)
+    let moveBy = -0.4 * (delta / 16);
+
+    const vel = velocityFactor.get();
+
+    // Add scroll velocity to the base movement
+    // --- ACCELERATION SENSITIVITY ---
+    // Change 0.4 to make it more or less reactive to the scroll
+    moveBy += moveBy * vel * 0.4;
+
+    // Manually update swiper translate for smooth physics control
+    const currentTranslate = swiperInstance.translate;
+    swiperInstance.setTranslate(currentTranslate + moveBy);
+
+    // We cast to any because loopFix is missing from some Swiper 12 type definitions
+    // but is required to reset the loop position during manual translation.
+    (swiperInstance as any).loopFix();
+  });
 
   useCustomResize(
     useCallback(() => {
@@ -41,19 +87,14 @@ export default function SwiperMarquee() {
       <div className="absolute left-0 top-0 bottom-0 w-40 bg-linear-to-r from-[#efeeec] to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-40 bg-linear-to-l from-[#efeeec] to-transparent z-10 pointer-events-none" />
       <Swiper
-        modules={[Autoplay]}
+        onSwiper={setSwiperInstance}
         loop={true}
-        speed={4000}
-        autoplay={{
-          delay: 0,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: false,
-        }}
         allowTouchMove={true}
         spaceBetween={spaceBetween}
         slidesPerView="auto"
         centeredSlides={false}
         watchSlidesProgress={true}
+        className="cursor-grab active:cursor-grabbing"
       >
         {Array.from({ length: 6 }, (_, round) =>
           LOGOS.map((logo, i) => (
