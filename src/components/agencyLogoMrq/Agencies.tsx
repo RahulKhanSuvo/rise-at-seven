@@ -38,7 +38,7 @@ export default function Agencies() {
               </div>
             </div>
           </div>
-          <p className="text-justify-start text-grey-900 md:mt-10 md:hidden font-semibold tracking-tight">
+          <p className="text-justify-start text-grey-900 mt-5 md:mt-10 md:hidden font-semibold tracking-tight">
             We&apos;re an award-winning full-service performance marketing and
             digital innovation agency working across 8 global offices.
             We&apos;re known for engineering category-defining search and
