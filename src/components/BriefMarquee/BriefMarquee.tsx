@@ -1,7 +1,14 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion, useMotionValue, useAnimationFrame } from "motion/react";
+import {
+  motion,
+  useMotionValue,
+  useAnimationFrame,
+  useScroll,
+  useVelocity,
+  useSpring,
+  useTransform,
+} from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import img1 from "@/assets/banner/lovely.png";
@@ -9,55 +16,53 @@ import img2 from "@/assets/banner/gangs.png";
 import BriefCursor from "./BriefCursor";
 
 export default function BriefMarquee() {
-  const x = useMotionValue(0);
-
-  const speedRef = useRef(1);
-  const velocityRef = useRef(0);
+  const baseX = useMotionValue(0);
+  const { scrollY } = useScroll();
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 50,
+    stiffness: 400,
+  });
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 15], {
+    clamp: false,
+  });
 
   const items = [
     { text: "Chasing Consumers", image: img1 },
     { text: "Not Algorithms", image: img2 },
   ];
 
-  const displayItems = [...items, ...items];
+  // More items to ensure no gaps at high speeds
+  const displayItems = [...items, ...items, ...items, ...items];
 
-  // 🚀 STRONGER + SMOOTHER SCROLL ACCELERATION
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      const delta = e.deltaY;
+  /**
+   * Helper for wrapping values to create infinite loop
+   */
+  const wrap = (min: number, max: number, v: number) => {
+    const rangeSize = max - min;
+    return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
+  };
 
-      // clamp raw input (trackpad + mouse consistency)
-      const clampedDelta = Math.max(-120, Math.min(120, delta));
+  useAnimationFrame((t, delta) => {
+    // Base speed: moves left by default
+    let moveBy = -0.02 * (delta / 16); // Normalized base speed (very slow)
 
-      // 🔥 stronger acceleration
-      velocityRef.current += clampedDelta * 0.12;
+    const vel = velocityFactor.get();
 
-      // safety clamp (prevents chaos)
-      velocityRef.current = Math.max(-3, Math.min(3, velocityRef.current));
-    };
+    // Add scroll velocity to the base movement
+    // vel > 0 (scrolling down) -> more negative (faster left)
+    // vel < 0 (scrolling up) -> moves right
+    moveBy += moveBy * vel * 0.1;
 
-    window.addEventListener("wheel", handleWheel, { passive: true });
-
-    return () => window.removeEventListener("wheel", handleWheel);
-  }, []);
-
-  // 🎮 physics loop (smooth decay + motion)
-  useAnimationFrame(() => {
-    // smooth return-to-zero (instead of harsh multiply)
-    velocityRef.current += (0 - velocityRef.current) * 0.12;
-
-    const currentX = x.get();
-
-    // combined motion
-    const move = speedRef.current + velocityRef.current * 1.3;
-
-    x.set(currentX - move * 0.98);
-
-    // simple infinite reset
-    if (currentX <= -2000) {
-      x.set(0);
-    }
+    baseX.set(baseX.get() + moveBy);
   });
+
+  /**
+   * We wrap the value between -50% and -25%
+   * since we have 4 copies of the items.
+   * This ensures we are always showing a valid part of the loop.
+   */
+  const x = useTransform(baseX, (v) => `${wrap(-50, -25, v)}%`);
 
   const dispatchCursor = (active: boolean, text?: string) => {
     window.dispatchEvent(
