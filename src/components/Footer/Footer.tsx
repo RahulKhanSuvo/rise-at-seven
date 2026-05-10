@@ -30,7 +30,7 @@ export default function Footer() {
       {/* ── Layer 1: Animated background (absolute, grows in height) ── */}
       <div
         className="absolute top-0 left-0 w-full p-2 flex pointer-events-none overflow-hidden rounded-3xl"
-        style={{ bottom: 0 }}
+        style={{ bottom: 2 }}
       >
         <motion.div
           style={{ height: backgroundHeight }}
