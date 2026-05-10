@@ -20,7 +20,7 @@ export default function WhatsNewContent() {
           el: ".whats-new-pagination",
           type: "progressbar",
         }}
-        className="w-full pb-12!"
+        className="w-full pb-4!"
       >
         {whatNewData.map((item, idx) => (
           <SwiperSlide
@@ -34,7 +34,7 @@ export default function WhatsNewContent() {
       <div className="w-full relative py-3 mt-1  md:px-7">
         <div className="w-full relative">
           <div
-            className="whats-new-pagination w-full relative h-1 bg-gray-200 rounded-full overflow-hidden [&_.swiper-pagination-progressbar-fill]:absolute [&_.swiper-pagination-progressbar-fill]:left-0 [&_.swiper-pagination-progressbar-fill]:top-0 [&_.swiper-pagination-progressbar-fill]:w-full [&_.swiper-pagination-progressbar-fill]:h-full [&_.swiper-pagination-progressbar-fill]:origin-left [&_.swiper-pagination-progressbar-fill]:transition-transform [&_.swiper-pagination-progressbar-fill]:duration-300"
+            className="whats-new-pagination w-full relative h-1 bg-white rounded-full overflow-hidden [&_.swiper-pagination-progressbar-fill]:absolute [&_.swiper-pagination-progressbar-fill]:left-0 [&_.swiper-pagination-progressbar-fill]:top-0 [&_.swiper-pagination-progressbar-fill]:w-full [&_.swiper-pagination-progressbar-fill]:h-full [&_.swiper-pagination-progressbar-fill]:origin-left [&_.swiper-pagination-progressbar-fill]:transition-transform [&_.swiper-pagination-progressbar-fill]:duration-300"
             style={
               { "--swiper-pagination-color": "#111212" } as React.CSSProperties
             }

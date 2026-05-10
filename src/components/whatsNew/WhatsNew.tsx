@@ -17,7 +17,7 @@ export default function WhatsNew() {
   return (
     <section className="px-4 md:px-7 py-12 xl:py-24">
       {/* tile */}
-      <div className="flex flex-col md:flex-row justify-between md:items-center border-b border-gray-300 pb-3 md:pb-5 gap-y-4">
+      <div className="flex flex-col md:flex-row justify-between md:items-center md:border-b border-gray-300 pb-3 md:pb-5 gap-y-4">
         <div className="flex flex-wrap items-center gap-1 md:gap-2.5">
           <TextSideAnimation
             className="text-5xl md:text-7xl lg:text-8xl"
