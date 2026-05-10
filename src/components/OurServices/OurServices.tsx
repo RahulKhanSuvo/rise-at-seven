@@ -18,12 +18,17 @@ export default function OurServices() {
     <section className="py-10 px-4 md:px-7">
       {/* tile */}
       <div className="flex justify-between items-center border-b border-gray-300 pb-3">
-        <div className="flex flex-wrap gap-2.5">
+        <div className="flex flex-wrap gap-x-2.5">
           <TextSideAnimation
             className="text-5xl md:text-7xl lg:text-8xl "
             text="Our"
           />
-          <AnimatedLogo size={targetWidth} src={heroLogo} delay={0.8} />
+          <AnimatedLogo
+            className="shrink-0"
+            size={targetWidth}
+            src={heroLogo}
+            delay={0.8}
+          />
           <TextSideAnimation
             className="text-5xl md:text-7xl lg:text-8xl "
             text="Services"
