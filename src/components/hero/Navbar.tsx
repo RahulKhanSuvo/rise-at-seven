@@ -118,7 +118,7 @@ export default function Navbar() {
               {megaMenu === link.id && (
                 <motion.div
                   layoutId="nav-link"
-                  className="absolute top-0 left-0 w-full h-full bg-white rounded-full pointer-events-none"
+                  className="absolute inset-0 w-full h-full bg-white rounded-full pointer-events-none"
                 />
               )}
             </div>
@@ -230,7 +230,7 @@ function GetInTouchButton({ isDark }: { isDark: boolean }) {
     <Link
       href="https://riseatseven.com/connect-with-us/"
       className={cn(
-        "group inline-flex shrink-0 justify-center gap-x-2 items-center relative leading-tight tracking-tight capitalize font-medium overflow-hidden border border-transparent cursor-pointer text-base px-6 py-3 rounded-3xl transition-all duration-300 hover:rounded-xl",
+        "group inline-flex shrink-0 justify-center gap-x-2 items-center relative leading-tight tracking-tight capitalize font-medium overflow-hidden border border-transparent cursor-pointer text-base px-6 py-1.5 rounded-3xl transition-all duration-300 hover:rounded-xl",
         !isDark ? "bg-white text-grey-900" : "bg-grey-900 text-white",
       )}
     >
