@@ -26,7 +26,7 @@ export default function FeaturedWork() {
         className="pt-16 h-[1000vh] px-4 md:px-7"
         style={{ position: "relative" }}
       >
-        <div className="px-4 md:px-10 flex h-[90vh]  justify-between sticky top-10 bg-grey-900 text-white rounded-3xl">
+        <div className="px-4 md:px-10 flex h-[90vh] overflow-hidden justify-between sticky top-10 bg-grey-900 text-white rounded-3xl">
           <div className="flex flex-col flex-1 relative">
             <div className="absolute inset-0 z-20 flex justify-between flex-col pointer-events-none">
               <div className="">
@@ -66,7 +66,7 @@ export default function FeaturedWork() {
               ))}
             </motion.div>
           </div>
-          <div className="w-3/7 h-full items-center">
+          <div className="xl:w-3/7 h-full items-center">
             <motion.div style={{ y }}>
               <Projects
                 hoveredProjectId={hoveredProjectId}
