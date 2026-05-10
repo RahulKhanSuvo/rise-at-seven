@@ -6,25 +6,22 @@ export default function HeroBigText({
 }: {
   heroLogo: StaticImageData;
 }) {
-  const text1 = "We";
-  const text2 = "Create";
-  const text3 = "Category";
   return (
     <div className="flex w-screen justify-center flex-col items-center ">
       <div className="flex gap-2.5 overflow-hidden h-fit">
         <TextSideAnimation
           className="text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem]"
-          text={text1}
+          text={"We"}
         />
         <TextSideAnimation
           className="text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem]"
-          text={text2}
+          text={"Create"}
         />
       </div>
       <div className="flex items-center gap-4 overflow-hidden h-fit pb-6">
         <TextSideAnimation
           className="text-5xl md:text-7xl lg:text-8xl xl:text-[7.4rem]"
-          text={text3}
+          text={"Category"}
         />
         <motion.div
           whileInView={{ width: 113, opacity: 1 }}
