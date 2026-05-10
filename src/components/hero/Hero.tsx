@@ -36,7 +36,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="w-full h-screen-fix h-svh relative p-2">
+    <section className="w-full h-screen-fix h-svh relative px-2">
       <div className="w-full h-full bg-red-100 relative rounded-3xl overflow-hidden">
         <Image
           src={bg}
