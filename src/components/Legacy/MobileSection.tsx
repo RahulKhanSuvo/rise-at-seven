@@ -68,7 +68,16 @@ const MobileSection = () => (
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="custom-pagination w-full mt-1 h-1 bg-gray-200 rounded-full overflow-hidden relative [&_.swiper-pagination-progressbar-fill]:absolute [&_.swiper-pagination-progressbar-fill]:left-0 [&_.swiper-pagination-progressbar-fill]:top-0 [&_.swiper-pagination-progressbar-fill]:w-full [&_.swiper-pagination-progressbar-fill]:h-full [&_.swiper-pagination-progressbar-fill]:bg-gray-900 [&_.swiper-pagination-progressbar-fill]:origin-left [&_.swiper-pagination-progressbar-fill]:transition-transform [&_.swiper-pagination-progressbar-fill]:duration-300"></div>
+      <div className="w-full relative mt-1 px-4 md:px-7">
+        <div className="w-full relative">
+          <div
+            className="custom-pagination w-full relative h-1 bg-gray-200 rounded-full overflow-hidden [&_.swiper-pagination-progressbar-fill]:absolute [&_.swiper-pagination-progressbar-fill]:left-0 [&_.swiper-pagination-progressbar-fill]:top-0 [&_.swiper-pagination-progressbar-fill]:w-full [&_.swiper-pagination-progressbar-fill]:h-full [&_.swiper-pagination-progressbar-fill]:origin-left [&_.swiper-pagination-progressbar-fill]:transition-transform [&_.swiper-pagination-progressbar-fill]:duration-300"
+            style={
+              { "--swiper-pagination-color": "#111212" } as React.CSSProperties
+            }
+          ></div>
+        </div>
+      </div>
     </div>
   </div>
 );
