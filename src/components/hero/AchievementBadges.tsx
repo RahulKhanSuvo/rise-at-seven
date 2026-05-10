@@ -14,6 +14,7 @@ export default function AchievementBadges() {
         className="object-contain"
         width={24}
         height={35}
+        style={{ width: "auto" }}
       />
       <Image
         src={badge5}
@@ -21,6 +22,7 @@ export default function AchievementBadges() {
         className="object-contain"
         width={50}
         height={22}
+        style={{ width: "auto" }}
       />
       <Image
         src={badge2}
@@ -36,6 +38,7 @@ export default function AchievementBadges() {
         className="object-contain"
         width={50}
         height={22}
+        style={{ width: "auto" }}
       />
       <Image
         src={badge3}
@@ -43,6 +46,7 @@ export default function AchievementBadges() {
         className="object-contain"
         width={50}
         height={22}
+        style={{ width: "auto" }}
       />
       <Image
         src={badge6}
@@ -50,6 +54,7 @@ export default function AchievementBadges() {
         className="object-contain"
         width={24}
         height={35}
+        style={{ width: "auto" }}
       />
     </div>
   );
