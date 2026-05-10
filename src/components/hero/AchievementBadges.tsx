@@ -8,54 +8,60 @@ import badge6 from "@/assets/logo/Vector2.svg";
 export default function AchievementBadges() {
   return (
     <div className="w-fit h-fit flex items-center justify-end gap-2">
-      <Image
-        src={badge1}
-        alt="achievement badges"
-        className="object-contain"
-        width={24}
-        height={35}
-        style={{ width: "auto", height: "auto" }}
-      />
-      <Image
-        src={badge5}
-        alt="achievement badges"
-        className="object-contain"
-        width={50}
-        height={22}
-        style={{ width: "auto", height: "auto" }}
-      />
-      <Image
-        src={badge2}
-        alt="achievement badges"
-        className="h-fit"
-        width={38}
-        height={10}
-        style={{ width: "auto", height: "auto" }}
-      />
-      <Image
-        src={badge4}
-        alt="achievement badges"
-        className="object-contain"
-        width={50}
-        height={22}
-        style={{ width: "auto", height: "auto" }}
-      />
-      <Image
-        src={badge3}
-        alt="achievement badges"
-        className="object-contain"
-        width={50}
-        height={22}
-        style={{ width: "auto", height: "auto" }}
-      />
-      <Image
-        src={badge6}
-        alt="achievement badges"
-        className="object-contain"
-        width={24}
-        height={35}
-        style={{ width: "auto", height: "auto" }}
-      />
+      <div className="relative" style={{ width: "24px", height: "35px" }}>
+        <Image
+          src={badge1}
+          alt="achievement badges"
+          fill
+          sizes="24px"
+          className="object-contain"
+        />
+      </div>
+      <div className="relative" style={{ width: "50px", height: "22px" }}>
+        <Image
+          src={badge5}
+          alt="achievement badges"
+          fill
+          sizes="50px"
+          className="object-contain"
+        />
+      </div>
+      <div className="relative" style={{ width: "38px", height: "10px" }}>
+        <Image
+          src={badge2}
+          alt="achievement badges"
+          fill
+          sizes="38px"
+          className="object-contain"
+        />
+      </div>
+      <div className="relative" style={{ width: "50px", height: "22px" }}>
+        <Image
+          src={badge4}
+          alt="achievement badges"
+          fill
+          sizes="50px"
+          className="object-contain"
+        />
+      </div>
+      <div className="relative" style={{ width: "50px", height: "22px" }}>
+        <Image
+          src={badge3}
+          alt="achievement badges"
+          fill
+          sizes="50px"
+          className="object-contain"
+        />
+      </div>
+      <div className="relative" style={{ width: "24px", height: "35px" }}>
+        <Image
+          src={badge6}
+          alt="achievement badges"
+          fill
+          sizes="24px"
+          className="object-contain"
+        />
+      </div>
     </div>
   );
 }

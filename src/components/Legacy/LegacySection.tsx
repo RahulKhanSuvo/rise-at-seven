@@ -17,8 +17,8 @@ export default function LegacySection() {
         <MobileSection />
         <div
           ref={containerRef}
-          className="w-full relative hidden lg:flex"
-          style={{ height: "250vh" }}
+          className="w-full hidden lg:flex"
+          style={{ height: "250vh", position: "relative" }}
         >
           <DesktopSection scrollYProgress={scrollYProgress} />
         </div>

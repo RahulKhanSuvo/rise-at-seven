@@ -23,7 +23,8 @@ export default function FeaturedWork() {
       <section
         id="featured-work"
         ref={containerRef}
-        className="pt-16 h-[1000vh] px-4 md:px-7 relative"
+        className="pt-16 h-[1000vh] px-4 md:px-7"
+        style={{ position: "relative" }}
       >
         <div className="px-4 md:px-10 flex h-[90vh] overflow-hidden justify-between items-center flex-wrap sticky top-10 bg-black text-white rounded-3xl">
           <div className="flex flex-col relative">

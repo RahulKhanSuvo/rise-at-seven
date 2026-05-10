@@ -68,7 +68,10 @@ export default function BriefMarquee() {
   };
 
   return (
-    <section className="w-full overflow-hidden py-10 lg:py-20 bg-[#efeeec] relative">
+    <section
+      className="w-full overflow-hidden py-10 lg:py-20 bg-[#efeeec]"
+      style={{ position: "relative" }}
+    >
       <BriefCursor />
 
       <Link
