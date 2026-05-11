@@ -60,7 +60,7 @@ export function GetInTouchButton({
 }) {
   return (
     <Link
-      href="/connect-with-us/"
+      href="/connect-with-us"
       className={cn(
         "group inline-flex shrink-0 justify-center gap-x-2 items-center relative leading-tight tracking-tight capitalize font-medium overflow-hidden border border-transparent cursor-pointer text-base px-6 py-3 rounded-3xl transition-all duration-300 hover:rounded-xl",
         !isDark ? "bg-white text-grey-900" : "bg-grey-900 text-white",
