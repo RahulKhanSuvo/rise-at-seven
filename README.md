@@ -32,7 +32,7 @@ Ensure you have [Bun](https://bun.sh/) installed on your machine.
 
 1. Clone the repository:
    ```bash
-   git clone [<repository-url>](https://github.com/RahulKhanSuvo/rise-at-seven.git)
+   git clone https://github.com/RahulKhanSuvo/rise-at-seven.git
    cd rise-at-seven
    ```
 
