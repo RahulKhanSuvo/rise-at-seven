@@ -16,6 +16,16 @@ export default function ServicesContent() {
           <Link href={item.href} className="relative z-10 grid grid-cols-1">
             {/* Foreground Content */}
             <div className="relative z-20 col-start-1 row-start-1 flex items-center gap-3 py-4 text-black transition duration-500 lg:py-6 group-hover:text-white overflow-hidden">
+              {/* Small image for mobile/no-hover */}
+              <div className="relative inline-flex h-12 w-12 shrink-0 overflow-hidden rounded-lg md:h-16 md:w-16 md:rounded-xl lg:hidden">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 768px) 48px, 64px"
+                  className="object-cover"
+                />
+              </div>
               {/* Text and Arrow Container */}
               <div className="transition-transform duration-500 lg:translate-x-10">
                 <div className="relative">
