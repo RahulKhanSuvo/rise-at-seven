@@ -112,7 +112,7 @@ export default function MobileMenu({
         </div>
 
         <Link
-          href="https://riseatseven.com/connect-with-us/"
+          href="/connect-with-us/"
           onClick={onClose}
           className="w-full group inline-flex shrink-0 justify-center gap-x-2 items-center relative leading-tight tracking-tighter capitalize font-medium overflow-hidden border border-transparent cursor-pointer text-base px-6 py-3 rounded-3xl transition-all duration-300 pointer-fine:hover:rounded-xl bg-white text-grey-900 flex-row-reverse"
         >
