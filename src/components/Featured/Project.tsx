@@ -65,6 +65,8 @@ export default function Project({
           sizes="(max-width: 768px) 100vw, 50vw"
           priority={project.id <= 2}
         />
+        {/* gradient overlay  */}
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/50" />
       </div>
 
       {/* Badge Layer (Always visible on base layer) */}

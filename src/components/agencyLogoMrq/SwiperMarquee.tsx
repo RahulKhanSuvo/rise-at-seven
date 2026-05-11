@@ -18,12 +18,33 @@ import logo3 from "@/assets/agency/Untitled-design.webp";
 import logo4 from "@/assets/agency/red-bull-logo-black.webp";
 import logo5 from "@/assets/agency/svg-image-6.svg";
 import logo6 from "@/assets/agency/svg-image-11.svg";
+import logo7 from "@/assets/agency/playstation.svg";
+import logo8 from "@/assets/agency/sixt.svg";
+import logo9 from "@/assets/agency/svg-image-8.svg";
+import logo10 from "@/assets/agency/svg-image-7.svg";
+import logo11 from "@/assets/agency/svg-image-10.svg";
+import logo12 from "@/assets/agency/svg-image-6.svg";
+import logo13 from "@/assets/agency/svg-image-11.svg";
 
 import "swiper/css";
 import { useState, useCallback } from "react";
 import { useCustomResize } from "@/hook/useCustomResize";
 
-const LOGOS: StaticImageData[] = [logo1, logo2, logo3, logo4, logo5, logo6];
+const LOGOS: StaticImageData[] = [
+  logo1,
+  logo2,
+  logo3,
+  logo4,
+  logo5,
+  logo6,
+  logo7,
+  logo8,
+  logo9,
+  logo10,
+  logo11,
+  logo12,
+  logo13,
+];
 
 export default function SwiperMarquee() {
   const [spaceBetween, setSpaceBetween] = useState(40);
@@ -80,12 +101,12 @@ export default function SwiperMarquee() {
   return (
     <div className="relative w-full  overflow-hidden select-none py-8">
       {/* Left and Right Gradient Blur Overlays */}
-      <div className="absolute left-0 top-0 bottom-0 w-60 z-10 pointer-events-none backdrop-blur-sm mask-[linear-gradient(to_right,black_20%,transparent)]" />
-      <div className="absolute right-0 top-0 bottom-0 w-60 z-10 pointer-events-none backdrop-blur-sm mask-[linear-gradient(to_left,black_20%,transparent)]" />
+      <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-60 z-10 pointer-events-none backdrop-blur-sm mask-[linear-gradient(to_right,black_20%,transparent)]" />
+      <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-60 z-10 pointer-events-none backdrop-blur-sm mask-[linear-gradient(to_left,black_20%,transparent)]" />
 
       {/* White color fade (separate from blur for better control) */}
-      <div className="absolute left-0 top-0 bottom-0 w-40 bg-linear-to-r from-[#efeeec] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-40 bg-linear-to-l from-[#efeeec] to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-10 lg:w-40 bg-linear-to-r from-[#efeeec] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-10 lg:w-40 bg-linear-to-l from-[#efeeec] to-transparent z-10 pointer-events-none" />
       <Swiper
         onSwiper={setSwiperInstance}
         loop={true}

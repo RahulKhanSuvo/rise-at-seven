@@ -1,28 +1,54 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import NewsletterSection from "./NewsletterSection";
 import FooterLinks from "./FooterLinks";
 import FooterLogo from "./FooterLogo";
 import FooterBottomBar from "./FooterBottomBar";
 
+function useIsDesktop() {
+  // Lazy initializer reads matchMedia once at mount — no synchronous setState in effect
+  const [isDesktop, setIsDesktop] = useState(() =>
+    typeof window !== "undefined"
+      ? window.matchMedia("(min-width: 1024px)").matches
+      : false,
+  );
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    // Only handle future breakpoint changes here, not the initial value
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+  return isDesktop;
+}
+
 export default function Footer() {
   const containerRef = useRef<HTMLElement>(null);
+  const isDesktop = useIsDesktop();
 
   // Background grows from 0% → 100% as footer enters viewport (top hits 100% → bottom hits bottom)
   const { scrollYProgress: bgProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end end"],
   });
-  const backgroundHeight = useTransform(bgProgress, [0, 1], ["0%", "100%"]);
+  const backgroundHeightAnimated = useTransform(
+    bgProgress,
+    [0, 1],
+    ["0%", "100%"],
+  );
 
   // Content fades in as footer scrolls from top-80% to bottom-110%
   const { scrollYProgress: contentProgress } = useScroll({
     target: containerRef,
     offset: ["start 80%", "end 110%"],
   });
-  const contentOpacity = useTransform(contentProgress, [0, 1], [0, 1]);
+  const contentOpacityAnimated = useTransform(contentProgress, [0, 1], [0, 1]);
+
+  // On mobile: static values (no animation)
+  const backgroundHeight = isDesktop ? backgroundHeightAnimated : "100%";
+  const contentOpacity = isDesktop ? contentOpacityAnimated : 1;
 
   return (
     // Outer wrapper: p-2 grid so children can use col/row placement
