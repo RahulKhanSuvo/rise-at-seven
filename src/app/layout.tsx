@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Cursor from "@/components/Cursor";
 import PageLoader from "@/common/PageLoader";
+import { Analytics } from "@vercel/analytics/next";
 
 const hankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken-grotesk",
@@ -37,6 +38,7 @@ export default function RootLayout({
         <PageLoader />
         <Cursor />
         <SmoothScroll>{children}</SmoothScroll>
+        <Analytics />
       </body>
     </html>
   );
